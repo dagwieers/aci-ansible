@@ -19,6 +19,7 @@ description:
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
+- Jacob McGill (@jmcgill298)
 version_added: '2.4'
 requirements:
 - ACI Fabric 1.0(3f)+
@@ -30,7 +31,7 @@ options:
     aliases: [ name, tenant_name ]
   description:
     description:
-    - Description for the AEP.
+    - Description for the tenant.
     aliases: [ descr ]
   state:
     description:
