@@ -12,8 +12,8 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 
 DOCUMENTATION = r'''
 ---
-module: aci_fiber_channel_policy
-short_description: Manage ACI Fiber Channel interface policies
+module: aci_fibre_channel_policy
+short_description: Manage ACI Fibre Channel interface policies
 description:
 - Manage ACI Fiber Channel interface policies.
 author:
@@ -48,7 +48,7 @@ extends_documentation_fragment: aci
 '''
 
 EXAMPLES = r'''
-- aci_fiber_channel_policy:
+- aci_fibre_channel_policy:
     hostname: '{{ hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'
