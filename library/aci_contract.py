@@ -84,7 +84,7 @@ def main():
         description=dict(type='str', aliases=['descr']),
         scope=dict(type='str', choices=['application-profile', 'context', 'global', 'tenant']),
         priority=dict(type='str', choices=['level1', 'level2', 'level3', 'unspecified']),  # No default provided on purpose
-        dscp=dict(type='str', 
+        dscp=dict(type='str',
                   choices=['AF11', 'AF12', 'AF13', 'AF21', 'AF22', 'AF23', 'AF31', 'AF32', 'AF33', 'AF41', 'AF42', 'AF43',
                            'CS0', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'CS7', 'EF', 'VA', 'unspecified'],
                   aliases['target']),  # No default provided on purpose
@@ -100,9 +100,9 @@ def main():
     contract = module.params['contract']
     tenant = module.params['tenant']
     description = module.params['description']
-    scope=module.params['scope']
-    priority=module.params['priority']
-    target=module.params['target']
+    scope = module.params['scope']
+    priority = module.params['priority']
+    target = module.params['target']
     state = module.params['state']
 
     aci = ACIModule(module)
