@@ -9,7 +9,7 @@ addons:
     packages:
     - python2.6
     - python3.5
-    - python3.6
+#    - python3.6
 before_install:
 - pip install -r requirements.txt
 - pip install pycodestyle
@@ -18,4 +18,4 @@ script:
 - python2.6 -m compileall library/ module_utils/
 - python2.7 -m compileall library/ module_utils/
 - python3.5 -m compileall library/ module_utils/
-- python3.6 -m compileall library/ module_utils/
+#- python3.6 -m compileall library/ module_utils/
