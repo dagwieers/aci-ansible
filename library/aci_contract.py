@@ -23,7 +23,7 @@ notes:
 options:
   contract:
     description:
-    - Contract Name
+    - The name of the contract.
     required: yes
     aliases: [ contract_name, name ]
   description:
@@ -45,10 +45,12 @@ options:
     - The desired QoS class to be used.
     default: unspecified
     choices: [ level1, level2, level3, unspecified ]
-  target:
+  dscp:
     description:
-    - Target DSCP (FIXME!)
+    - The target Differentiated Service (DSCP) value.
+    choices: [ AF11, AF12, AF13, AF21, AF22, AF23, AF31, AF32, AF33, AF41, AF42, AF43, CS0, CS1, CS2, CS3, CS4, CS5, CS6, CS7, EF, VA, unspecified ]
     default: unspecified
+    aliases: [ target ]
 extends_documentation_fragment: aci
 '''
 
@@ -78,11 +80,14 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         contract=dict(type='str', required=False, aliases=['contract_name', 'name']),  # Not required for querying all contracts
-        tenant=dict(type='str', required=True, aliases=['tenant_name']),
+        tenant=dict(type='str', required=True, aliases=['tenant_name']),  # Not required for querying all contracts
         description=dict(type='str', aliases=['descr']),
-        scope=dict(type='str', default='context', choices=['application-profile', 'context', 'global', 'tenant']),
+        scope=dict(type='str', choices=['application-profile', 'context', 'global', 'tenant']),
         priority=dict(type='str', choices=['level1', 'level2', 'level3', 'unspecified']),  # No default provided on purpose
-        target=dict(type='str'),  # No default provided on purpose
+        dscp=dict(type='str', 
+                  choices=['AF11', 'AF12', 'AF13', 'AF21', 'AF22', 'AF23', 'AF31', 'AF32', 'AF33', 'AF41', 'AF42', 'AF43',
+                           'CS0', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'CS7', 'EF', 'VA', 'unspecified'],
+                  aliases['target']),  # No default provided on purpose
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
@@ -102,11 +107,14 @@ def main():
 
     aci = ACIModule(module)
 
-    # TODO: Currently we require a tenant for a query, we could make this optional
-    # TODO: Investigate for a URI to query objects for a specific tenant
+    # TODO: This logic could be cleaner.
     if contract is not None:
-        # Work with a specific contract
-        path = 'api/mo/uni/tn-%(tenant)s/brc-%(contract)s.json' % module.params
+        if tenant is not None:
+            path = 'api/mo/uni/tn-%(tenant)s/brc-%(contract)s.json' % module.params
+        elif state == 'query':
+            path = 'api/mo/uni/tn-%(tenant)s.json?rsp-subtree=children&rsp-subtree-class=vzBrCP&rsp-subtree-include=no-scoped' % module.params
+        else:
+            module.fail_json(msg="Parameters 'tenant' is required for state 'absent' or 'present'")
     elif state == 'query':
         # Query all contracts
         path = 'api/node/class/vzBrCP.json'
