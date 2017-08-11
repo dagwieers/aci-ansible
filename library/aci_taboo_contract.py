@@ -8,10 +8,10 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: aci_taboo_contracts
-short_description: Manage ACI taboo contracts
+module: aci_taboo_contract
+short_description: Manage taboo contracts on Cisco ACI fabrics
 description:
-- Manage ACI taboo contracts.
+- Manage taboo contracts on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
@@ -46,7 +46,7 @@ extends_documentation_fragment: aci
 
 # FIXME: Add more, better examples
 EXAMPLES = r'''
-- aci_taboo_contracts:
+- aci_taboo_contract:
     hostname: '{{ inventory_hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'
