@@ -53,8 +53,8 @@ EXAMPLES = r'''
     username: '{{ username }}'
     password: '{{ password }}'
     fc_policy: '{{ fc_policy }}'
-    port_mode: '{{ port_mode }}' 
-    description: '{{ description }}' 
+    port_mode: '{{ port_mode }}'
+    description: '{{ description }}'
     state: present
 '''
 
@@ -71,7 +71,7 @@ def main():
     argument_spec.update(
         fc_policy=dict(type='str', required=False),  # Not required for querying all policies
         description=dict(type='str', aliases=['descr']),
-        port_mode=dict(type='str', choices=['f','np']),  # No default provided on purpose
+        port_mode=dict(type='str', choices=['f', 'np']),  # No default provided on purpose
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
