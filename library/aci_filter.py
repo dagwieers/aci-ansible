@@ -101,9 +101,9 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
-        filter_name=dict(type='str', required=False),
-        tenant=dict(type='str', aliases=['name', 'tenant_name'], required=True),
-        description=dict(type='str', aliases=['descr'], required=False),
+        filter=dict(type='str', required=False, aliases=['name', 'filter_name']),  # Not required for querying all filters
+        tenant=dict(type='str', required=True, aliases=['tenant_name']),
+        description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
