@@ -52,19 +52,18 @@ options:
 extends_documentation_fragment: aci
 '''
 
+# FIXME: Add more, better examples
 EXAMPLES = r'''
 - aci_contract:
-    action: "{{ action }}"
-    contract_name: "{{ contract_name }}"
-    tenant_name: "{{ tenant_name }}"
-    priority: "{{ priority }}"
-    scope: "{{ scope }}"
-    target: "{{ target }}"
-    descr: "{{ descr }}"
-    host: "{{ inventory_hostname }}"
-    username: "{{ user }}"
-    password: "{{ pass }}"
-    protocol: "{{ protocol }}"
+    hostname: '{{ inventory_hostname }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    contract: '{{ contract }}'
+    description: '{{ descr }}'
+    tenant: '{{ tenant }}'
+    scope: '{{ scope }}'
+    priority: '{{ priority }}'
+    target: '{{ target }}'
 '''
 
 RETURN = r'''
