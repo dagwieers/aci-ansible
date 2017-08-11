@@ -40,6 +40,12 @@ options:
     - The name of the tenant.
     required: yes
     aliases: [ tenant_name ]
+  state:
+    description:
+    - Use C(present) or C(absent) for adding or removing.
+    - Use C(query) for listing an object or multiple objects.
+    choices: [ absent, present, query ]
+    default: present
 extends_documentation_fragment: aci
 '''
 
