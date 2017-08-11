@@ -1,188 +1,123 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
-DOCUMENTATION = '''
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
+DOCUMENTATION = r'''
 ---
-
 module: aci_action_rule_profile
-short_description: Direct access to the APIC API
+short_description: Manage ACI action rule profiles
 description:
-    - Offers direct access to the APIC API
-author: Cisco
+- Manage ACI action rule profiles.
+author:
+- Swetha Chunduri (@schunduri)
+- Dag Wieers (@dagwieers)
+- Jacob McGill (@jmcgill298)
+version_added: '2.4'
 requirements:
-    - ACI Fabric 1.0(3f)+
+- ACI Fabric 1.0(3f)+
 notes:
-    - Tenant should already exist
+- The tenant used must exist before using this module in your playbook. The M(aci_tenant) module can be used for this.
 options:
-    action:
-	description:
-	    - post, get or delete
-	required: true
-	default: null
-	choices: ['post', 'get','delete']
-	aliases: []
-    tenant_name:
-        description:
-            - Tenant Name
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    action_rule_name:
-        description:
-            - Action Rule Profile Name
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    descr:
-	description:
-            - Description for the action rule profile
-        required: false
-        default: null
-        choices: []
-        aliases: []
-    host:
-        description:
-            - IP Address or hostname of APIC resolvable by Ansible control host
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    username:
-        description:
-            - Username used to login to the switch
-        required: true
-        default: 'admin'
-        choices: []
-        aliases: []
-    password:
-        description:
-            - Password used to login to the switch
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    protocol:
-        description:
-            - Dictates connection protocol to use
-        required: false
-        default: https
-        choices: ['http', 'https']
-        aliases: []
+  action_rule:
+    description:
+    - The name of the action rule profile.
+    required: yes
+    aliases: [ action_rule_name, name ]
+  description:
+    description:
+    - Description for the action rule profile.
+    aliases: [ descr ]
+  tenant:
+    description:
+    - The name of the tenant.
+    required: yes
+    aliases: [ tenant_name ]
+  state:
+    description:
+    - Use C(present) or C(absent) for adding or removing.
+    - Use C(query) for listing an object or multiple objects.
+    choices: [ absent, present, query ]
+    default: present
+extends_documentation_fragment: aci
 '''
 
-EXAMPLES =  '''
-
-     aci_action_rule_profile:
-         action: "{{ action }}"
-         tenant_name: "{{ tenant_name }}" 
-         action_rule_name: "{{ action_rule_name }}"
-         descr: "{{ descr }}"  
-         host: "{{ inventory_hostname }}"
-         username: "{{ username }}" 
-         password: "{{ password }}"
-	 protocol: "{{ protocol }}"
-
+# FIXME: Add more, better examples
+EXAMPLES = r'''
+- aci_action_rule_profile:
+    hostname: '{{ inventory_hostname }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    action_rule: '{{ action_rule }}'
+    description: '{{ descr }}'
+    tenant: '{{ tenant }}'
 '''
 
-import socket
-import json
-import requests
+RETURN = r'''
+#
+'''
+
+from ansible.module_utils.aci import ACIModule, aci_argument_spec
+from ansible.module_utils.basic import AnsibleModule
 
 
 def main():
-    ''' Ansible module to take all the parameter values from the playbook '''
+    argument_spec = aci_argument_spec
+    argument_spec.update(
+        action_rule=dict(type='str', required=False, aliases=['action_rule_name', 'name']),  # Not required for querying all objects
+        tenant=dict(type='str', required=True, aliases=['tenant_name']),  # Not required for querying all objects
+        description=dict(type='str', aliases=['descr']),
+        state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
+        method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
+    )
 
-    module = AnsibleModule(argument_spec=dict(
-        action=dict(choices=['get', 'post','delete']),
-        tenant_name=dict(type='str', required=True),
-        action_rule_name=dict(type='str', required=True),
-        descr=dict(type='str'),
-        host=dict(required=True),
-        username=dict(type='str', default='admin'),
-        password=dict(type='str'),
-        protocol=dict(choices=['http', 'https'], default='https'),
-        ), supports_check_mode=False)
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        supports_check_mode=True,
+    )
 
+    action_rule = module.params['action_rule']
+    tenant = module.params['tenant']
+    description = module.params['description']
+    state = module.params['state']
 
-    tenant_name = module.params['tenant_name']
-    action_rule_name = module.params['action_rule_name']
-    descr = module.params['descr']
-    descr=str(descr)
-    host = socket.gethostbyname(module.params['host'])
-    username = module.params['username']
-    password = module.params['password']
-    protocol = module.params['protocol']
-    action = module.params['action']
+    aci = ACIModule(module)
 
-    post_uri = '/api/mo/uni/tn-' + tenant_name + '/attr-' + action_rule_name + '.json'
-    get_uri = 'api/node/class/rtctrlAttrP.json'
-
-    config_data = {
-        "rtctrlAttrP": {
-                "attributes": {
-                       "descr": descr,
-                       "name": action_rule_name
-                    }
-              }
-
-         }
-     
-    payload_data = json.dumps(config_data)
-
-    apic = '{0}://{1}/'.format(protocol, host)
-
-    auth = dict(aaaUser=dict(attributes=dict(name=username,
-                pwd=password)))
-    url = apic + 'api/aaaLogin.json'
-
-    authenticate = requests.post(url, data=json.dumps(auth), timeout=2,
-                                 verify=False)
-
-    if authenticate.status_code != 200:
-        module.fail_json(msg='could not authenticate to apic',
-                         status=authenticate.status_code,
-                         response=authenticate.text)
-
-    if post_uri.startswith('/'):
-        post_uri = post_uri[1:]
-    post_url = apic + post_uri
-
-    if get_uri.startswith('/'):
-        get_uri = get_uri[1:]
-    get_url = apic + get_uri
-
-    if action == 'post':
-        req = requests.post(post_url, cookies=authenticate.cookies,
-                            data=payload_data, verify=False)
-
-    elif action == 'delete':
-        req = requests.delete(post_url, cookies=authenticate.cookies, data=payload_data, verify=False)
-   
-    elif action == 'get':
-        req = requests.get(get_url, cookies=authenticate.cookies,
-                           data=payload_data, verify=False)
-
-    response = req.text
-    status = req.status_code
-
-    changed = False
-    if req.status_code == 200:
-        if action == 'post':
-            changed = True
-        else:
-            changed = False
+    # TODO: This logic could be cleaner.
+    if action_rule is not None:
+        path = 'api/mo/uni/tn-%(tenant)s/attr-%(action_rule)s.json' % module.params
+    elif state == 'query':
+        # Query all objects
+        path = 'api/node/class/rtctrlAttrP.json'
     else:
-        module.fail_json(msg='error issuing api request',
-                         response=response, status=status)
+        module.fail_json(msg="Parameter 'action_rule' is required for state 'absent' or 'present'")
 
-    results = {}
-    results['status'] = status
-    results['response'] = response
-    results['changed'] = changed
+    aci.result['url'] = '%(protocol)s://%(hostname)s/' % aci.params + path
 
-    module.exit_json(**results)
+    aci.get_existing()
 
-from ansible.module_utils.basic import *
+    if state == 'present':
+        # Filter out module parameters with null values
+        aci.payload(aci_class='rtctrlAttrP', class_config=dict(name=action_rule, descr=description))
+
+        # Generate config diff which will be used as POST request body
+        aci.get_diff(aci_class='rtctrlAttrP')
+
+        # Submit changes if module not in check_mode and the proposed is different than existing
+        aci.post_config()
+
+    elif state == 'absent':
+        aci.delete_config()
+
+    module.exit_json(**aci.result)
+
+
 if __name__ == "__main__":
     main()
