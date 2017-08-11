@@ -96,8 +96,8 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
-        tenant=dict(type='str', aliases=['name', 'tenant_name'], required=False),
-        description=dict(type='str', aliases=['descr'], required=False),
+        tenant=dict(type='str', required=False, aliases=['name', 'tenant_name']),  # Not required for querying all tenants
+        description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
