@@ -69,7 +69,7 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
-        fc_policy=dict(type='str', required=False),  # Not required for querying all policies
+        fc_policy=dict(type='str', required=False, aliases=['name']),  # Not required for querying all policies
         description=dict(type='str', aliases=['descr']),
         port_mode=dict(type='str', choices=['f', 'np']),  # No default provided on purpose
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
@@ -93,7 +93,7 @@ def main():
         path = 'api/mo/uni/infra/fcIfPol-%(fc_policy)s.json' % module.params
     elif state == 'query':
         # Query all filters
-        path = 'api/node/class/infra/fcIfPol.json'
+        path = 'api/infra/class/fcIfPol.json'
     else:
         module.fail_json(msg="Parameter 'fc_policy' is required for state 'absent' or 'present'")
 
