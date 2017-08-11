@@ -30,7 +30,7 @@ options:
     description:
     - The name of the filter.
     required: yes
-    aliases: [ filter_name ]
+    aliases: [ filter_name, name ]
   description:
     description:
     - Description for the filter.
@@ -39,7 +39,7 @@ options:
     description:
     - The name of the tenant.
     required: yes
-    aliases: [ name, tenant_name ]
+    aliases: [ tenant_name ]
 extends_documentation_fragment: aci
 '''
 
