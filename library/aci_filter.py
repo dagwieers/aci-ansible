@@ -82,16 +82,7 @@ EXAMPLES = r'''
 '''
 
 RETURN = r'''
-status:
-  description: status code of the http request
-  returned: always
-  type: int
-  sample: 200
-response:
-  description: response text returned by APIC
-  returned: when a HTTP request has been made to APIC
-  type: string
-  sample: '{"totalCount":"0","imdata":[]}'
+#
 '''
 
 from ansible.module_utils.aci import ACIModule, aci_argument_spec
