@@ -1,189 +1,117 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
-DOCUMENTATION = '''
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
+DOCUMENTATION = r'''
 ---
-
 module: aci_mcp_interface
-short_description: Direct access to the APIC API
+short_description: Manage MCP interfaces on Cisco ACI fabrics
 description:
-    - Offers direct access to the APIC API
-author: Cisco
+- Manage MCP interfaces on Cisco ACI fabrics.
+author:
+- Swetha Chunduri (@schunduri)
+- Dag Wieers (@dagwieers)
+- Jacob McGill (@jmcgill298)
+version_added: '2.4'
 requirements:
-    - ACI Fabric 1.0(3f)+
-notes:
+- ACI Fabric 1.0(3f)+
 options:
-    action:
-        description:
-            - post, get, or delete
-        required: true
-        default: null
-        choices: ['post','get', 'delete']
-        aliases: []
-    mcp_interface:
-        description:
-            - MCP Interface name
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    admin_state:
-        description:
-            - Enable or Disable Admin State
-        required: false
-        default: 'enable'
-        choices: ['enable','disable']
-        aliases: []
-    descr:
-        description:
-            - Description for MCP Interface
-        required: false
-        default: null
-        choices: []
-        aliases: []
-    host:
-        description:
-            - IP Address or hostname of APIC resolvable by Ansible control host
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    username:
-        description:
-            - Username used to login to the switch
-        required: true
-        default: 'admin'
-        choices: []
-        aliases: []
-    password:
-        description:
-            - Password used to login to the switch
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    protocol:
-        description:
-            - Dictates connection protocol to use
-        required: false
-        default: https
-        choices: ['http', 'https']
-        aliases: []
+  mcp_interface:
+    description:
+    - The name of the MCP interface.
+    required: yes
+    aliases: [ name ]
+  description:
+    description:
+    - Description for the MCP interface.
+    aliases: [ descr ]
+  admin_state:
+    description:
+    - Enable or disable admin state.
+    choices: [ disable, enable ]
+    default: enable
+  state:
+    description:
+    - Use C(present) or C(absent) for adding or removing.
+    - Use C(query) for listing an object or multiple objects.
+    choices: [ absent, present, query ]
+    default: present
+extends_documentation_fragment: aci
 '''
 
-EXAMPLES =  '''
-
-    aci_mcp_interface:
-        action: "{{ action }}" 
-        mcp_interface: "{{ mcp_interface }}"
-        admin_state: "{{ admin_state }}"
-        descr: "{{ descr }}
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-	protocol:"{{ protocol }}"
-
+# FIXME: Add more, better examples
+EXAMPLES = r'''
+- aci_mcp_interface:
+    hostname: '{{ hostname }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    mcp_interface: '{{ mcp_interface }}'
+    description: '{{ descr }}'
+    admin_state: '{{ admin_state }}'
 '''
 
-import socket
-import json
-import requests
+RETURN = r'''
+#
+'''
+
+from ansible.module_utils.aci import ACIModule, aci_argument_spec
+from ansible.module_utils.basic import AnsibleModule
 
 
 def main():
-    
-    ''' Ansible module to take all the parameter values from the playbook '''
-
-    module = AnsibleModule(
-        argument_spec=dict(
-            action=dict(choices=['get', 'post','delete']),
-            mcp_interface=dict(type='str'),
-            admin_state=dict(choices=['enabled','disabled'], default='enabled'),
-            descr=dict(type='str',required=False),       
-            host=dict(required=True),
-            username=dict(type='str', default='admin'),
-            password=dict(type='str'),
-            protocol=dict(choices=['http', 'https'], default='https'),
-        ), 
-        supports_check_mode=False
+    argument_spec = aci_argument_spec
+    argument_spec.update(
+        mcp_interface=dict(type='str', required=False, aliases=['name']),  # Not required for querying all objects
+        description=dict(type='str', aliases=['descr']),
+        admin_state=dict(type='str', choices=['disabled', 'enabled']),
+        state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
+        method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
 
-    host = socket.gethostbyname(module.params['host'])
-    username = module.params['username']
-    password = module.params['password']
-    protocol = module.params['protocol']
-    action = module.params['action']
-    
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        supports_check_mode=True,
+    )
+
     mcp_interface = module.params['mcp_interface']
+    description = module.params['description']
     admin_state = module.params['admin_state']
-    descr = module.params['descr']
-    descr=str(descr)
+    state = module.params['state']
 
-    post_uri = '/api/mo/uni/infra/mcpIfP-'  + mcp_interface + '.json'
-    get_uri = '/api/node/class/mcpIfPol.json'
+    aci = ACIModule(module)
 
-    config_data = {
-      "mcpIfPol": {
-  	"attributes":{ 
-	     "adminSt": admin_state,
-	     "descr": descr,
-	     "name": mcp_interface
-		}
-          }
-     } 
-    payload_data = json.dumps(config_data)
-
-    apic = '{0}://{1}/'.format(protocol, host)
-
-    auth = dict(aaaUser=dict(attributes=dict(name=username,
-                pwd=password)))
-    url = apic + 'api/aaaLogin.json'
-
-    authenticate = requests.post(url, data=json.dumps(auth), timeout=2,
-                                 verify=False)
-
-    if authenticate.status_code != 200:
-        module.fail_json(msg='could not authenticate to apic',
-                         status=authenticate.status_code,
-                         response=authenticate.text)
-
-    if post_uri.startswith('/'):
-        post_uri = post_uri[1:]
-    post_url = apic + post_uri
-
-    if get_uri.startswith('/'):
-        get_uri = get_uri[1:]
-    get_url = apic + get_uri
-
-    if action == 'post':
-        req = requests.post(post_url, cookies=authenticate.cookies,
-                            data=payload_data, verify=False)
-    elif action == 'get':
-        req = requests.get(get_url, cookies=authenticate.cookies,
-                           data=payload_data, verify=False)
-
-    elif action == 'delete':
-        req = requests.delete(post_url, cookies=authenticate.cookies, data=payload_data, verify=False)
-
-    response = req.text
-    status = req.status_code
-
-    changed = False
-    if req.status_code == 200:
-        if action == 'post':
-            changed = True
-        else:
-            changed = False
+    # TODO: This logic could be cleaner.
+    if mcp_interface is not None:
+        path = 'api/mo/uni/infra/mcpIfP--%(mcp_interface)s.json' % module.params
+    elif state == 'query':
+        # Query all objects
+        path = 'api/node/class/mcpIfPol.json'
     else:
-        module.fail_json(msg='error issuing api request',
-                         response=response, status=status)
+        module.fail_json(msg="Parameter 'mcp_interface' is required for state 'absent' or 'present'")
 
-    results = {}
-    results['status'] = status
-    results['response'] = response
-    results['changed'] = changed
+    aci.result['url'] = '%(protocol)s://%(hostname)s/' % aci.params + path
 
-    module.exit_json(**results)
+    aci.get_existing()
 
-from ansible.module_utils.basic import *
+    if state == 'present':
+        # Filter out module parameters with null values
+        aci.payload(aci_class='mcpIfPol', class_config=dict(name=mcp_interface, descr=description, adminSt=admin_state))
+
+        # Generate config diff which will be used as POST request body
+        aci.get_diff(aci_class='mcpIfPol')
+
+        # Submit changes if module not in check_mode and the proposed is different than existing
+        aci.post_config()
+
+    elif state == 'absent':
+        aci.delete_config()
+
+    module.exit_json(**aci.result)
+
+
 if __name__ == "__main__":
     main()
