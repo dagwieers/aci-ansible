@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_route_tag_policy
-short_description: Manage ACI route tag policies
+short_description: Manage ACI route tag policies on Cisco ACI fabrics
 description:
-- Manage ACI route tag policies.
+- Manage ACI route tag policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
@@ -77,7 +77,7 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         rtp=dict(type='str', required=False, aliases=['name', 'rtp_name']),  # Not required for querying all objects
-        tenant=dict(type='str', required=True, aliases=['tenant_name']),
+        tenant=dict(type='str', required=False, aliases=['tenant_name']),  # Not required for quering all objects
         description=dict(type='str', aliases=['descr']),
         tag=dict(type='int'),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
@@ -99,10 +99,16 @@ def main():
 
     if rtp is not None:
         # Work with a specific object
-        path = 'api/mo/uni/tn-%(tenant)s/rttag-%(rtp)s.json' % module.params
+        if tenant is not None:
+            path = 'api/mo/uni/tn-%(tenant)s/rttag-%(rtp)s.json' % module.params
+        else:
+            path = 'api/class/l3extRouteTagPol.json?query-target-filter=eq(l3extRouteTagPol.name,"%(rtp)s")' % module.params
     elif state == 'query':
         # Query all objects
-        path = 'api/node/class/l3extRouteTagPol.json'
+        if tenant is not None:
+            path = 'api/mo/uni/tn-%(tenant)s.json?rsp-subtree=children&rsp-subtree-class=l3extRouteTagPol&rsp-subtree-include=no-scoped' % module.params
+        else:
+            path = 'api/node/class/l3extRouteTagPol.json'
     else:
         module.fail_json(msg="Parameter 'rtp' is required for state 'absent' or 'present'")
 
