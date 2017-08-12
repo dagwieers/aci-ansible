@@ -72,7 +72,7 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         monitoring_policy=dict(type='str', required=False, aliases=['name']),  # Not required for querying all objects
-        tenant=dict(type='str', required=True, aliases=['tenant_name']),
+        tenant=dict(type='str', required=False, aliases=['tenant_name']),  # Not required for querying all objects
         description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
@@ -92,10 +92,16 @@ def main():
 
     if monitoring_policy is not None:
         # Work with a specific object
-        path = 'api/mo/uni/tn-%(tenant)s/monepg-%(monitoring_policy)s.json' % module.params
+        if tenant is not None:
+            path = 'api/mo/uni/tn-%(tenant)s/monepg-%(monitoring_policy)s.json' % module.params
+        elif state == 'query':
+            path = 'api/class/monEPGPol.json?query-target-filter=eq(monEPGPol.name,"%(monitoring_policy)s")' % module.params
     elif state == 'query':
         # Query all objects
-        path = 'api/node/class/monEPGPol.json'
+        if tenant is not None:
+            path = 'api/mo/uni/tn-%(tenant)s.json?rsp-subtree=children&rsp-subtree-class=monEPGPol&rsp-subtree-include=no-scoped' % module.params
+        else:
+            path = 'api/node/class/monEPGPol.json'
     else:
         module.fail_json(msg="Parameter 'monitoring_policy' is required for state 'absent' or 'present'")
 
