@@ -1,189 +1,115 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
-DOCUMENTATION = '''
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
+DOCUMENTATION = r'''
 ---
-
 module: aci_port_security
-short_description: Direct access to the APIC API
+short_description: Manage port security on Cisco ACI fabrics
 description:
-    - Offers direct access to the APIC API
-author: Cisco
+- Manage port security on Cisco ACI fabrics.
+author:
+- Swetha Chunduri (@schunduri)
+- Dag Wieers (@dagwieers)
+- Jacob McGill (@jmcgill298)
+version_added: '2.4'
 requirements:
-    - ACI Fabric 1.0(3f)+
-notes:
+- ACI Fabric 1.0(3f)+
 options:
-    action:
-        description:
-            - post, get, oe delete
-        required: true
-        default: null
-        choices: ['post','get', 'delete']
-        aliases: []
-    port_security:
-        description:
-            - Port Security name
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    max_end_points:
-        description:
-            - Maximum number of end points (range 0-12000) 
-        required: false
-        default: '0'
-        choices: []
-        aliases: []
-    descr:
-        description:
-            - Description for Port Security
-        required: false
-        default: null
-        choices: []
-        aliases: []
-    host:
-        description:
-            - IP Address or hostname of APIC resolvable by Ansible control host
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    username:
-        description:
-            - Username used to login to the switch
-        required: true
-        default: 'admin'
-        choices: []
-        aliases: []
-    password:
-        description:
-            - Password used to login to the switch
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    protocol:
-        description:
-            - Dictates connection protocol to use
-        required: false
-        default: https
-        choices: ['http', 'https']
-        aliases: []
+  port_security:
+    description:
+    - The name of the port security.
+    required: yes
+    aliases: [ name ]
+  description:
+    description:
+    - Description for the contract.
+    aliases: [ descr ]
+  max_end_points:
+    description:
+    - Maximum number of end points (range 0-12000).
+    default: 0
+  state:
+    description:
+    - Use C(present) or C(absent) for adding or removing.
+    - Use C(query) for listing an object or multiple objects.
+    choices: [ absent, present, query ]
+    default: present
+extends_documentation_fragment: aci
 '''
 
-EXAMPLES =  '''
-
-    aci_port_security:
-        action: "{{ action }}"
-        port_security: "{{ port_security }}"
-        max_end_points: "{{ max_end_points }}"
-        descr: "{{ descr }}"
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}" 
-        password: "{{ password }}"
-	protocol: "{{ protocol }}"
+# FIXME: Add more, better examples
+EXAMPLES = r'''
+- aci_port_security:
+    hostname: '{{ inventory_hostname }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    port_security: '{{ port_security }}'
+    description: '{{ descr }}'
+    max_end_points: '{{ max_end_points }}'
 '''
 
-import socket
-import json
-import requests
+RETURN = r'''
+#
+'''
+
+from ansible.module_utils.aci import ACIModule, aci_argument_spec
+from ansible.module_utils.basic import AnsibleModule
 
 
 def main():
-    
-    
-    ''' Ansible module to take all the parameter values from the playbook '''
-
-    module = AnsibleModule(
-        argument_spec=dict(
-            action=dict(choices=['get', 'post', 'delete']),
-            port_security=dict(type='str'),        
-            max_end_points=dict(type='str', default='0'),
-            descr=dict(type='str',required=False),       
-            host=dict(required=True),
-            username=dict(type='str', default='admin'),
-            password=dict(type='str'),
-            protocol=dict(choices=['http', 'https'], default='https'),
-        ), 
-        supports_check_mode=False
+    argument_spec = aci_argument_spec
+    argument_spec.update(
+        port_security=dict(type='str', required=False, aliases=['name']),  # Not required for querying all objects
+        description=dict(type='str', aliases=['descr']),
+        max_end_points=dict(type='int'),
+        state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
+        method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
     )
 
-    host = socket.gethostbyname(module.params['host'])
-    username = module.params['username']
-    password = module.params['password']
-    protocol = module.params['protocol']
-    action = module.params['action']
-    
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        supports_check_mode=True,
+    )
+
     port_security = module.params['port_security']
+    description = module.params['description']
     max_end_points = module.params['max_end_points']
-    descr = module.params['descr']
-    descr=str(descr)
 
-    post_uri = '/api/mo/uni/infra/portsecurityP-'  +port_security + '.json'
-    get_uri = '/api/node/class/l2PortSecurityPol.json'
+    aci = ACIModule(module)
 
-    config_data = {
-      "l2PortSecurityPol": {
-	"attributes": {
-	    "descr": descr,
-	    "maximum": max_end_points,
-	    "name": port_security,
-	    "violation": "protect"
-	     }
-          }
-      } 
-    payload_data = json.dumps(config_data)
-
-    apic = '{0}://{1}/'.format(protocol, host)
-
-    auth = dict(aaaUser=dict(attributes=dict(name=username,
-                pwd=password)))
-    url = apic + 'api/aaaLogin.json'
-
-    authenticate = requests.post(url, data=json.dumps(auth), timeout=2,
-                                 verify=False)
-
-    if authenticate.status_code != 200:
-        module.fail_json(msg='could not authenticate to apic',
-                         status=authenticate.status_code,
-                         response=authenticate.text)
-
-    if post_uri.startswith('/'):
-        post_uri = post_uri[1:]
-    post_url = apic + post_uri
-
-    if get_uri.startswith('/'):
-        get_uri = get_uri[1:]
-    get_url = apic + get_uri
-
-    if action == 'post':
-        req = requests.post(post_url, cookies=authenticate.cookies,
-                            data=payload_data, verify=False)
-    elif action == 'get':
-        req = requests.get(get_url, cookies=authenticate.cookies,
-                           data=payload_data, verify=False)
-    elif action == 'delete':
-        req = requests.delete(post_url, cookies=authenticate.cookies, data=payload_data, verify=False)
-
-    response = req.text
-    status = req.status_code
-
-    changed = False
-    if req.status_code == 200:
-        if action == 'post':
-            changed = True
-        else:
-            changed = False
+    # TODO: This logic could be cleaner.
+    if port_security is not None:
+        path = 'api/mo/uni/infra/portsecurityP-%(port_security)s.json' % module.params
+    elif state == 'query':
+        # Query all objects
+        path = 'api/node/class/l2PortSecurityPol.json'
     else:
-        module.fail_json(msg='error issuing api request',
-                         response=response, status=status)
+        module.fail_json(msg="Parameter 'port_security' is required for state 'absent' or 'present'")
 
-    results = {}
-    results['status'] = status
-    results['response'] = response
-    results['changed'] = changed
+    aci.result['url'] = '%(protocol)s://%(hostname)s/' % aci.params + path
 
-    module.exit_json(**results)
+    aci.get_existing()
 
-from ansible.module_utils.basic import *
+    if state == 'present':
+        # Filter out module parameters with null values
+        aci.payload(aci_class='l2PortSecurityPol', class_config=dict(name=port_security, descr=description, maximum=max_end_points))
+
+        # Generate config diff which will be used as POST request body
+        aci.get_diff(aci_class='l2PortSecurityPol')
+
+        # Submit changes if module not in check_mode and the proposed is different than existing
+        aci.post_config()
+
+    elif state == 'absent':
+        aci.delete_config()
+
+    module.exit_json(**aci.result)
+
+
 if __name__ == "__main__":
     main()
