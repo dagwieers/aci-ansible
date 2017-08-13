@@ -74,7 +74,7 @@ def main():
     argument_spec.update(
         taboo_contract=dict(type='str', required=False, aliases=['name']),  # Not required for querying all contracts
         tenant=dict(type='str', required=False, aliases=['tenant_name']),  # Not required for querying all contracts
-        scope=dict(type='str', choices=['application-profile', 'context', 'global', 'tenant']
+        scope=dict(type='str', choices=['application-profile', 'context', 'global', 'tenant']),
         description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
