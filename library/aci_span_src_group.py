@@ -89,6 +89,8 @@ import socket
 import json
 import requests
 
+from ansible.module_utils.basic import AnsibleModule
+
 
 def main():
     ''' Ansible module to take all the parameter values from the playbook '''
@@ -193,6 +195,6 @@ def main():
 
     module.exit_json(**results)
 
-from ansible.module_utils.basic import *
+
 if __name__ == "__main__":
     main()

@@ -86,7 +86,7 @@ def main():
     )
 
     taboo_contract = module.params['taboo_contract']
-    tenant = module.params['tenant']
+    # tenant = module.params['tenant']
     description = module.params['description']
     scope = module.params['scope']
     state = module.params['state']

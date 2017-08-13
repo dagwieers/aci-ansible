@@ -80,6 +80,7 @@ def main():
     description = module.params['description']
     # TODO: validate that max_end_points is in the acceptable range
     max_end_points = module.params['max_end_points']
+    state = module.params['state']
 
     aci = ACIModule(module)
 

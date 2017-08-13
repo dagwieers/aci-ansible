@@ -12,8 +12,9 @@ addons:
 #    - python3.6
 before_install:
 - pip install -r requirements.txt
-- pip install pycodestyle
+- pip install pycodestyle pyflakes
 script:
+- pyflakes module_utils/__init__.py $(git diff --name-only $TRAVIS_COMMIT_RANGE | grep '.py$' | xargs ls 2>/dev/null)
 - pycodestyle --max-line-length=160 --config=/dev/null --ignore=E305,E402,E722,E741 module_utils/__init__.py $(git diff --name-only $TRAVIS_COMMIT_RANGE | grep '.py$' | xargs ls 2>/dev/null)
 - python2.6 -m compileall library/ module_utils/
 - python2.7 -m compileall library/ module_utils/

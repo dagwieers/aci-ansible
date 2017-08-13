@@ -79,7 +79,8 @@ EXAMPLES = r'''
 import socket
 import json
 import requests
-import os
+
+from ansible.module_utils.basic import AnsibleModule
 
 
 mo_class_value = {
@@ -113,8 +114,6 @@ def get_mo_class(command, node_id):
 
 
 def write2file(data, filename):
-    output_saved = ""
-    filename_missing = ""
     if filename != "None":
         with open(filename + '.txt', 'w') as output_file:
             output_file.write(json.dumps(data, sort_keys=True, indent=4))
@@ -203,6 +202,6 @@ def main():
 
     module.exit_json(**results)
 
-from ansible.module_utils.basic import *
+
 if __name__ == '__main__':
     main()

@@ -80,7 +80,7 @@ def main():
     )
 
     dst_group = module.params['dst_group']
-    tenant = module.params['tenant']
+    # tenant = module.params['tenant']
     description = module.params['description']
     state = module.params['state']
 
