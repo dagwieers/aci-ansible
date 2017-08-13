@@ -35,7 +35,13 @@ options:
     - The name of the tenant.
     required: yes
     aliases: [ tenant_name ]
-  state:
+  scope:
+    description:
+    - The scope of a service contract.
+    - The APIC defaults new Taboo Contracts to a scope of context (VRF)
+    type: str
+    choices: [ application-profile, context, global, tenant ]
+state:
     description:
     - Use C(present) or C(absent) for adding or removing.
     - Use C(query) for listing an object or multiple objects.
@@ -67,7 +73,8 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         taboo_contract=dict(type='str', required=False, aliases=['name']),  # Not required for querying all contracts
-        tenant=dict(type='str', required=True, aliases=['tenant_name']),  # Not required for querying all contracts
+        tenant=dict(type='str', required=False, aliases=['tenant_name']),  # Not required for querying all contracts
+        scope=dict(type='str', choices=['application-profile', 'context', 'global', 'tenant']
         description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
@@ -81,6 +88,7 @@ def main():
     taboo_contract = module.params['taboo_contract']
     tenant = module.params['tenant']
     description = module.params['description']
+    scope = module.params['scope']
     state = module.params['state']
 
     aci = ACIModule(module)
@@ -100,7 +108,7 @@ def main():
 
     if state == 'present':
         # Filter out module parameters with null values
-        aci.payload(aci_class='vzBrCP', class_config=dict(name=taboo_contract, descr=description))
+        aci.payload(aci_class='vzBrCP', class_config=dict(name=taboo_contract, descr=description, scope=scope))
 
         # Generate config diff which will be used as POST request body
         aci.get_diff(aci_class='vzBrCP')
