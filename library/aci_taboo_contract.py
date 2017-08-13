@@ -23,7 +23,7 @@ notes:
 options:
   taboo_contract:
     description:
-    - Taboo Contract name
+    - Taboo Contract name.
     required: yes
     aliases: [ name ]
   description:
@@ -38,7 +38,7 @@ options:
   scope:
     description:
     - The scope of a service contract.
-    - The APIC defaults new Taboo Contracts to a scope of context (VRF)
+    - The APIC defaults new Taboo Contracts to a scope of context (VRF).
     type: str
     choices: [ application-profile, context, global, tenant ]
 state:
