@@ -32,16 +32,17 @@ options:
   max_links:
     description:
     - Maximum links (range 1-16).
-    default: '16'
+    - The APIC defaults new Port Channel Policies to a max links of 16.
   min_links:
     description:
     - Minimum links (range 1-16).
-    default: '1'
+    - The APIC defaults new Port Channel Policies to a min links of 1.
   mode:
     description:
     - Port channel interface policy mode.
-    default: 'off'
-    choices: [ off, mac-pin, active, passive, mac-pin-nicload ]
+    - Determines the LACP method to use for forming port-channels.
+    - The APIC defaults new Port Channel Polices to a off mode.
+  choices: [ off, mac-pin, active, passive, mac-pin-nicload ]
   state:
     description:
     - Use C(present) or C(absent) for adding or removing.
@@ -90,7 +91,9 @@ def main():
 
     port_channel = module.params['port_channel']
     description = module.params['description']
+    # TODO: Validate min_links is in the acceptable range
     min_links = module.params['min_link']
+    # TODO: Validate max_links is in the acceptable range
     min_links = str(min_links)
     max_links = module.params['max_link']
     max_links = str(max_links)
