@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_route_tag_policy
-short_description: Manage ACI route tag policies on Cisco ACI fabrics
+short_description: Manage route tag policies on Cisco ACI fabrics
 description:
-- Manage ACI route tag policies on Cisco ACI fabrics.
+- Manage route tag policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

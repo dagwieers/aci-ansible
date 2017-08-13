@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_login_domain
-short_description: Direct access to the APIC API
+short_description: Manage login domains on Cisco ACI fabrics
 description:
-    - Offers direct access to the APIC API
+- Manage login domains on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

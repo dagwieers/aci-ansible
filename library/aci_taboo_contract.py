@@ -6,6 +6,10 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
 DOCUMENTATION = r'''
 ---
 module: aci_taboo_contract
@@ -16,6 +20,7 @@ author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
 - Jacob McGill (@jmcgill298)
+version_added: '2.4'
 requirements:
 - ACI Fabric 1.0(3f)+
 notes:

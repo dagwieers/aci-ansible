@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_lldp_interface_policy
-short_description: Manage ACI LLDP interface policies
+short_description: Manage LLDP interface policies on Cisco ACI fabrics
 description:
-- Manage ACI LLDAP interface policies
+- Manage LLDP interface policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

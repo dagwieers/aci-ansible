@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_l2_interface_policy
-short_description: Manage ACI Layer 2 interface policies
+short_description: Manage Layer 2 interface policies on Cisco ACI fabrics
 description:
-- Manage ACI Layer 2 interface policies
+- Manage Layer 2 interface policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

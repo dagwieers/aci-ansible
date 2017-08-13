@@ -42,7 +42,7 @@ options:
     - Port channel interface policy mode.
     - Determines the LACP method to use for forming port-channels.
     - The APIC defaults new Port Channel Polices to a off mode.
-  choices: [ off, mac-pin, active, passive, mac-pin-nicload ]
+    choices: [ active, mac-pin, mac-pin-nicload, off, passive ]
   state:
     description:
     - Use C(present) or C(absent) for adding or removing.

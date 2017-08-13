@@ -128,14 +128,13 @@ options:
     description:
     - Use C(present) or C(absent) for adding or removing.
     - Use C(query) for listing an object or multiple objects.
-    type: str
     choices: [ absent, present, query ]
     type: str
     default: present
   tenant:
     description:
     - The name of the Tenant.
-    type:str,
+    type: str
     aliases: [ tenant_name ]
   vrf:
     description:

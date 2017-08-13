@@ -6,11 +6,15 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
 DOCUMENTATION = r'''
 module: aci_contract
-short_description: Manage Subnets on Cisco ACI fabrics
+short_description: Manage subnets on Cisco ACI fabrics
 description:
-- Manage Subnets on Cisco ACI fabrics.
+- Manage subnets on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

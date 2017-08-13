@@ -6,12 +6,16 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
 DOCUMENTATION = r'''
 ---
 module: aci_span_dst_group
-short_description: Manage ACI span destination groups
+short_description: Manage span destination groups on Cisco ACI fabrics
 description:
-- Manage ACI span destination groups
+- Manage span destination groups on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
