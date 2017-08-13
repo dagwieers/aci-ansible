@@ -3,7 +3,7 @@
 
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
-from __future__ import (absolute_import, division, print_function)
+from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 ANSIBLE_METADATA = {'metadata_version': '1.0',
@@ -28,7 +28,7 @@ options:
       description:
       - The name of the Attachable Access Entity Profile.
       required: yes
-      aliases: ['name','aep_name']
+      aliases: [ aep_name, name ]
     description:
       description:
       - Description for the AEP.

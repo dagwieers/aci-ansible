@@ -1,11 +1,26 @@
 #!/usr/bin/python
-DOCUMENTATION = '''
+# -*- coding: utf-8 -*-
 
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
+DOCUMENTATION = r'''
+---
 module: aci_contract_subjects
-short_description: Manages initial contract subjects(does not include contracts)
+short_description: Manage initial contract subjects on Cisco ACI fabrics
 description:
-    -  Manage contract subjects with this module
-author: Cisco
+- Manage initial contract subjects on Cisco ACI fabrics.
+author:
+- Swetha Chunduri (@schunduri)
+- Dag Wieers (@dagwieers)
+- Jacob McGill (@jmcgill298)
+version_added: '2.4'
 requirements:
     - ACI Fabric 1.0(3f)+
 notes: Tenant must be exist prior to using this module
@@ -14,124 +29,84 @@ options:
         description:
             - post, get, delete
         required: true
-        default: null
         choices: ['post','get','delete']
-        aliases: []    
    tenant_name:
         description:
             - Tenant Name
         required: true
-        default: null
-        choices: []
-        aliases: []
    subject_name:
         description:
-            -Contract Name
+            - Subject Name
         required: true
-        default: null
-        choices: []
-        aliases: []
    contract_name:
         description:
             - Contract Name
         required: true
-        default: null
-        choices: []
-        aliases: []
    reverse_filter:
         description:
             - Select or De-select reverse filter port option
-        required: false
         default: 'no'
         choices: ['yes','no']
-        aliases: []
    priority:
         description:
-            - Qos class 
-        required: false
+            - Qos class
         default: unspecified
         choices: [ 'unspecified','level1','level2','level3']
-        aliases: []
    target:
         description:
             - Target DSCP
-        required:false
         default: unspecified
-        choices: []
-        aliases: []
    filter_name:
         description:
             - Filter Name
-        required:false
-        default: null
-        choices: []
-        aliases: []
    directive:
         description:
             - Directive for filter  (can be none or log)
-        required:false
-        default: none
-        choices: []
-        aliases: []
    descr:
         description:
             - Description for the AEP
-        required: false
-        default: null
-        choices: []
-        aliases: []
    host:
         description:
             - IP Address or hostname of APIC resolvable by Ansible control host
         required: true
-        default: null
-        choices: []
-        aliases: []
    username:
         description:
             - Username used to login to the switch
         required: true
         default: 'admin'
-        choices: []
-        aliases: []
    password:
         description:
             - Password used to login to the switch
         required: true
-        default: null
-        choices: []
-        aliases:[]                                                                  
    protocol:
         description:
             - Dictates connection protocol to use
-        required: false
         default: https
         choices: ['http', 'https']
-        aliases: []
 '''
 
 EXAMPLES = '''
-
-    aci_contract_subjects:
-       action: "{{ action }}"
-       subject_name: "{{ subject_name }}"
-       contract_name: "{{ contract_name }}"
-       tenant_name: "{{ tenant_name }}"
-       priority: "{{ priority }}"
-       reverse_filter: "{{ reverse_filter }}"
-       filter_name: "{{ filter_name }}"
-       directive: "{{ directive }}"   
-       target: "{{ target }}"
-       descr: "{{ descr }}"
-       host: "{{ inventory_hostname }}"
-       username: "{{ user }}"
-       password: "{{ pass }}"
-       protocol: "{{ protocol }}"
-
+- aci_contract_subjects:
+    action: "{{ action }}"
+    subject_name: "{{ subject_name }}"
+    contract_name: "{{ contract_name }}"
+    tenant_name: "{{ tenant_name }}"
+    priority: "{{ priority }}"
+    reverse_filter: "{{ reverse_filter }}"
+    filter_name: "{{ filter_name }}"
+    directive: "{{ directive }}"
+    target: "{{ target }}"
+    descr: "{{ descr }}"
+    host: "{{ inventory_hostname }}"
+    username: "{{ user }}"
+    password: "{{ pass }}"
+    protocol: "{{ protocol }}"
 '''
+
 import socket
 import json
 import requests
+
 
 def main():
 
@@ -146,24 +121,23 @@ def main():
             contract_name=dict(type="str"),
             subject_name=dict(type="str", required=False),
             tenant_name=dict(type="str", required=False),
-            priority=dict(choices=[ 'unspecified','level1','level2','level3'],default='unspecified', required=False),
-            reverse_filter=dict(choices=['yes','no'], required=False, default='yes'),
+            priority=dict(choices=['unspecified', 'level1', 'level2', 'level3'], default='unspecified', required=False),
+            reverse_filter=dict(choices=['yes', 'no'], required=False, default='yes'),
             target=dict(type="str", required=False, default='unspecified'),
             descr=dict(type="str", required=False),
             filter_name=dict(type="str", required=False),
             directive=dict(type="str", required=False, default='none'),
         ),
-        supports_check_mode=False
+        supports_check_mode=False,
     )
 
-    subject_name=module.params['subject_name']
-    tenant_name=module.params['tenant_name']
-    priority=module.params['priority']
-    reverse_filter=module.params['reverse_filter']
-    target=module.params['target']
-    descr=module.params['descr']
-    descr=str(descr)
-    contract_name= module.params['contract_name']
+    subject_name = module.params['subject_name']
+    tenant_name = module.params['tenant_name']
+    priority = module.params['priority']
+    reverse_filter = module.params['reverse_filter']
+    target = module.params['target']
+    descr = module.params['descr']
+    contract_name = module.params['contract_name']
     username = module.params['username']
     password = module.params['password']
     protocol = module.params['protocol']
@@ -172,7 +146,6 @@ def main():
     host = socket.gethostbyname(module.params['host'])
     action = module.params['action']
 
-
     if directive == "none":
         directive = ""
     elif directive == "log":
@@ -180,38 +153,34 @@ def main():
     else:
         print("Please error either none or log as the directive value")
 
-
-
-    post_uri ='api/mo/uni/tn-'+tenant_name+'/brc-'+contract_name+'/subj-'+subject_name+'.json'
+    post_uri = 'api/mo/uni/tn-' + tenant_name + '/brc-' + contract_name + '/subj-' + subject_name + '.json'
     get_uri = 'api/node/class/vzSubj.json'
 
     ''' Config payload to enable the physical interface '''
     config_data = {
-      "vzSubj":{
-         "attributes":{
-            "name": subject_name, 
-            "prio": priority, 
-            "revFltPorts": reverse_filter,
-            "targetDscp": target, 
-            "descr":descr
-              },
-             "children":[{
-                 "vzRsSubjFiltAtt":{
-                     "attributes":{
-                         "directives": directive, 
-                         "tnVzFilterName": filter_name
-                      }
-               }
-            }
-         ]
-       }
+        "vzSubj": {
+            "attributes": {
+                "name": subject_name,
+                "prio": priority,
+                "revFltPorts": reverse_filter,
+                "targetDscp": target,
+                "descr": descr,
+            }, "children": [{
+                "vzRsSubjFiltAtt": {
+                    "attributes": {
+                        "directives": directive,
+                        "tnVzFilterName": filter_name,
+                    }
+                }
+            }]
+        }
     }
     payload_data = json.dumps(config_data)
 
     ''' authentication || || Throw an error otherwise'''
     apic = '{0}://{1}/'.format(protocol, host)
     auth = dict(aaaUser=dict(attributes=dict(name=username, pwd=password)))
-    url=apic+'api/aaaLogin.json'
+    url = apic + 'api/aaaLogin.json'
     authenticate = requests.post(url, data=json.dumps(auth), timeout=2, verify=False)
 
     if authenticate.status_code != 200:
@@ -245,7 +214,7 @@ def main():
             changed = False
 
     else:
-        module.fail_json(msg='error issuing api request',response=response, status=status)
+        module.fail_json(msg='error issuing api request', response=response, status=status)
 
     results = {}
     results['status'] = status
@@ -256,4 +225,3 @@ def main():
 from ansible.module_utils.basic import *
 if __name__ == "__main__":
     main()
-

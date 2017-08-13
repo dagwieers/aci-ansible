@@ -20,6 +20,7 @@ author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
 - Jacob Mcgill (@jmcgill298)
+version_added: '2.4'
 requirements:
 - ACI Fabric 1.0(3f)+
 notes:
@@ -88,6 +89,7 @@ EXAMPLES = r'''
     priority: unspecified
     intra_epg_isolation: unenforced
     state: present
+
 - name: Remove an EPG
   aci_epg:
     hostname: apic
@@ -97,6 +99,7 @@ EXAMPLES = r'''
     app_profile: default
     epg: app_epg
     state: absent
+
 - name: Query an EPG
   aci_epg:
     hostname: apic
@@ -106,6 +109,7 @@ EXAMPLES = r'''
     app_profile: default
     epg: app_epg
     state: query
+
 - name: Query all EPgs
   aci_epg:
     hostname: apic
