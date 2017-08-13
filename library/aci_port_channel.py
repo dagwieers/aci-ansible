@@ -8,7 +8,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: aci_port_channel_interface
+module: aci_port_channel
 short_description: Manage port channels on Cisco ACI fabrics
 description:
 - Manage port channels on Cisco ACI fabrics.
@@ -53,7 +53,7 @@ extends_documentation_fragment: aci
 '''
 
 EXAMPLES = r'''
-- aci_port_channel_interface:
+- aci_port_channel:
     hostname: '{{ inventory_hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'
