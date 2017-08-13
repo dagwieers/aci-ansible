@@ -32,7 +32,7 @@ options:
   max_end_points:
     description:
     - Maximum number of end points (range 0-12000).
-    default: 0
+    - The APIC defaults new port-security policies to a max End Points of 0.
   state:
     description:
     - Use C(present) or C(absent) for adding or removing.
@@ -78,6 +78,7 @@ def main():
 
     port_security = module.params['port_security']
     description = module.params['description']
+    # TODO: validate that max_end_points is in the acceptable range
     max_end_points = module.params['max_end_points']
 
     aci = ACIModule(module)
