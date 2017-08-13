@@ -101,7 +101,7 @@ def main():
 
     if state == 'present':
         # Filter out module parameters with null values
-        aci.payload(aci_class='spanDestGrp', class_config=dict(name=contract, descr=description))
+        aci.payload(aci_class='spanDestGrp', class_config=dict(name=dst_group, descr=description))
 
         # Generate config diff which will be used as POST request body
         aci.get_diff(aci_class='spanDestGrp')
