@@ -6,12 +6,16 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
 DOCUMENTATION = r'''
 ---
-module: aci_port_channel
-short_description: Manage port channels on Cisco ACI fabrics
+module: aci_port_channel_interface
+short_description: Manage port channel interface policies on Cisco ACI fabrics
 description:
-- Manage port channels on Cisco ACI fabrics.
+- Manage port channel interface policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

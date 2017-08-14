@@ -13,9 +13,9 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_action_rule_profile
-short_description: Manage ACI action rule profiles
+short_description: Manage action rule profiles on Cisco ACI fabrics
 description:
-- Manage ACI action rule profiles.
+- Manage action rule profiles on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
@@ -82,7 +82,7 @@ def main():
     )
 
     action_rule = module.params['action_rule']
-    tenant = module.params['tenant']
+    # tenant = module.params['tenant']
     description = module.params['description']
     state = module.params['state']
 

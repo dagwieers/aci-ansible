@@ -6,12 +6,16 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+ANSIBLE_METADATA = {'metadata_version': '1.0',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
 DOCUMENTATION = r'''
 ---
 module: aci_mcp_interface
-short_description: Manage MCP interfaces on Cisco ACI fabrics
+short_description: Manage MCP interface policies on Cisco ACI fabrics
 description:
-- Manage MCP interfaces on Cisco ACI fabrics.
+- Manage MCP interface policies on Cisco ACI fabrics.
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
