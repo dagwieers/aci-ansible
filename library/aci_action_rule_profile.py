@@ -29,7 +29,6 @@ options:
   action_rule:
     description:
     - The name of the action rule profile.
-    required: yes
     aliases: [ action_rule_name, name ]
   description:
     description:
@@ -38,7 +37,6 @@ options:
   tenant:
     description:
     - The name of the tenant.
-    required: yes
     aliases: [ tenant_name ]
   state:
     description:
@@ -72,7 +70,7 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         action_rule=dict(type='str', required=False, aliases=['action_rule_name', 'name']),  # Not required for querying all objects
-        tenant=dict(type='str', required=True, aliases=['tenant_name']),  # Not required for querying all objects
+        tenant=dict(type='str', required=False, aliases=['tenant_name']),  # Not required for querying all objects
         description=dict(type='str', aliases=['descr']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
