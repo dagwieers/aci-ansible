@@ -31,61 +31,51 @@ options:
     description:
     - Allows micro-segmentation.
     - The APIC defaults new EPG to Domain bindings to use encap
-    type: str
     choices: [ encap, useg ]
     default: encap
   app_profile:
     description:
     - Name of an existing application network profile, that will contain the EPGs.
-    type: str
     aliases: [ app_profile_name ]
   deploy_immediacy:
     description:
     - Determines when the policy is pushed to hardware Policy CAM.
     - The APIC defaults new EPG to Domain bindings to lazy.
-    type: str
     choices: [ immediate, lazy ]
     default: lazy
   domain_profile:
     description:
     - Name of the physical or virtual domain being associated with the EPG.
-    type: str
     aliases: [ domain_name ]
   domain_type:
     description:
     - Determines if the Domain is physical (phys) or virtual (vmm).
-    type: str
     choices: [ phys, vmm ]
     aliases: [ domain ]
   encap:
     description:
     - The VLAN encapsulation for the EPG when binding a VMM Domain with static encap_mode.
     - This acts as the secondary encap when using useg.
-    type: int
     choices: [ range from 1 to 4096 ]
   encap_mode:
     description:
     - The ecapsulataion method to be used.
     - The APIC defaults new EPG to Domain bindings to be auto.
-    type: str
     choices: [ auto, vlan, vxlan ]
     default: auto
   epg:
     description:
     - Name of the end point group.
-    type: str
     aliases: [ epg_name ]
   netflow:
     description:
     - Determines if netflow should be enabled.
     - The APIC defaults new EPG to Domain binings to be disabled.
-    type: str
     choices: [ disabled, enabled ]
     default: disabled
   primary_encap:
     description:
     - Determines the primary VLAN ID when using useg.
-    type: int
     choices: [ range from 1 to 4096 ]
   resolution_immediacy:
     description:
@@ -102,7 +92,6 @@ options:
   tenant:
     description:
     - Name of an existing tenant.
-    type: str
     aliases: [ tenant_name ]
 extends_documentation_fragment: aci
 '''

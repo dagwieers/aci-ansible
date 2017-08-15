@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 
 DOCUMENTATION = r'''
 ---
-module: aci_port_channel_interface
+module: aci_port_channel
 short_description: Manage port channel interface policies on Cisco ACI fabrics
 description:
 - Manage port channel interface policies on Cisco ACI fabrics.

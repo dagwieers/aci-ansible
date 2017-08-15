@@ -13,7 +13,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_fc_policy
-short_description: Manage ACI Fibre Channel interface policies on Cisco ACI fabrics
+short_description: Manage Fibre Channel interface policies on Cisco ACI fabrics
 description:
 - Manage ACI Fiber Channel interface policies on Cisco ACI fabrics.
 author:

@@ -44,9 +44,8 @@ options:
     description:
     - The scope of a service contract.
     - The APIC defaults new Taboo Contracts to a scope of context (VRF).
-    type: str
     choices: [ application-profile, context, global, tenant ]
-state:
+  state:
     description:
     - Use C(present) or C(absent) for adding or removing.
     - Use C(query) for listing an object or multiple objects.

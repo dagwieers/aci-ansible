@@ -31,48 +31,39 @@ options:
   bd:
     description:
     - The name of the Bridge Domain.
-    type: str
   description:
     description:
     - The description for the Subnet.
-    type: str
   enable_vip:
     description:
     - Determines if the Subnet should be treated as a VIP; used when the BD is extended to multiple sites.
     - The APIC defaults new Subnets to disable VIP feature.
-    type: str
     choices: [ no, yes ]
   gateway:
     description:
     - The IPv4 or IPv6 gateway address for the Subnet.
-    type: str
     aliases: [ gateway_ip ]
   mask:
     description:
     - The subnet mask for the Subnet.
-    - This is the number assocated with CIDR notation (EX: 24 should be supplied for a /24)
-    type: int
+    - This is the number assocated with CIDR notation.
     choices: [ Any 0 to 32 for IPv4 Addresses, 0-128 for IPv6 Addresses  ]
     aliases: [ subnet_mask ]
   nd_prefix_policy:
     description:
     - The IPv6 Neighbor Discovery Prefix Policy to associate with the Subnet.
-    type: str
   preferred:
     description:
-    - Determines if the Subnet is preferred over all available Subnets. Only one Subnet per Address Family (IPv4/IPv6)
+    - Determines if the Subnet is preferred over all available Subnets. Only one Subnet per Address Family (IPv4/IPv6).
       can be preferred in the Bridge Domain.
     - The APIC defaults new Subnets to not be preffered.
-    type: str
     choices: [ no, yes ]
   route_profile:
     description:
     - The Route Profile to the associate with the Subnet.
-    type: str
   route_profile_l3_out:
     description:
     - The L3 Out that contains  the assocated Route Profile.
-    type: str
   scope:
     description:
     - Determines if scope of the Subnet.
@@ -81,7 +72,6 @@ options:
       hosts in other VRFs.
     - The shared option limits communication to hosts in either the same VRF or the shared VRF.
     - The APIC defaults new Subnets to be private.
-    type: str
     choices: [ private, public, shared ]
   subnet_control:
     description:
@@ -90,17 +80,14 @@ options:
     - The nd_ra option is used to treate the gateway_ip address as a Neighbor Discovery Router Advertisement Prefix.
     - The no_gw option is used to remove default gateway functionality from the gateway address.
     - The APIC defaults new Subnets to ND RA.
-    type: str
     choices: [ nd_ra, no_gw, querier_ip, unspecified ]
   subnet_name:
     description:
     - The name of the Subnet.
-    type: str
     aliases: [ name ]
   tenant:
     description:
     - The name of the Tenant.
-    type: str
     aliases: [ tenant_name ]
 '''
 

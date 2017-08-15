@@ -220,7 +220,7 @@ def main():
         if os.path.isfile(src):
             file_exists = True
         else:
-            module.fail_json(msg='Cannot find/access src:\n%s' % src)
+            module.fail_json(msg="Cannot find/access src '%s'" % src)
 
     # Find request type
     if path.find('.xml') != -1:

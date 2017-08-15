@@ -112,8 +112,8 @@ def main():
     )
 
     filter_name = module.params['filter']
+    tenant = module.params['tenant']
     description = module.params['description']
-    # tenant = module.params['tenant']
     state = module.params['state']
 
     aci = ACIModule(module)

@@ -57,7 +57,7 @@ EXAMPLES = r'''
     password: '{{ password }}'
     monitoring_policy: '{{ monitoring_policy }}'
     description: '{{ description }}'
-    tenant: "{{ tenant }}'
+    tenant: '{{ tenant }}'
 '''
 
 RETURN = r'''

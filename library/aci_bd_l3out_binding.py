@@ -29,16 +29,13 @@ options:
   bd:
     description:
     - The name of the Bridge Domain.
-    type: str
     aliases: [ bd_name, bridge_domain ]
   l3out:
     description:
     - The name of the l3out to associate with th Bridge Domain.
-    type: str
   tenant:
     description:
     - The name of the Tenant.
-    type: str
     aliases: [ tenant_name ]
   state:
     description:

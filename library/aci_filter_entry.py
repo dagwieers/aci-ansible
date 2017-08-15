@@ -31,71 +31,57 @@ options:
     description:
     - The arp flag to use when the ether_type is arp.
     choices: [ arp_reply, arp_request, unspecified ]
-    type: str
   description:
     description:
     - Description for the Filter Entry.
-    alias: [ descr ]
-    type: str
+    aliases: [ descr ]
   dst_port:
     description:
     - Used to set both destination start and end ports to the same value when ip_protocol is tcp or udp.
     choices: [ Valid TCP/UDP Port Ranges]
-    type: str
   dst_port_end:
     description:
     - Used to set the destination end port when ip_protocol is tcp or udp.
     choices: [ Valid TCP/UDP Port Ranges]
-    type: str
   dst_port_start:
     description:
     - Used to set the destination start port when ip_protocol is tcp or udp.
     choices: [ Valid TCP/UDP Port Ranges]
-    type: str
   entry:
     description:
     - Then name of the Filter Entry.
     aliases: [ entry_name, name ]
-    type: str
   ether_type:
     description:
     - The Ethernet type.
-    type: str
     choices: [ arp, fcoe, ip, mac_security, mpls_ucast, trill, unspecified ]
   filter_name:
     description:
       The name of Filter that the entry should belong to.
-    type: str
   icmp_msg_type:
     description:
     - ICMPv4 message type; used when ip_protocol is icmp.
     choices: [ dst_unreachable, echo, echo_reply, src_quench, time_exceeded, unspecified ]
-    type: str
   icmp6_msg_type:
     description:
     - ICMPv6 message type; used when ip_protocol is icmpv6.
     choices: [ dst_unreachable, echo_request, echo_reply, neighbor_advertisement, neighbor_solicitation, redirect, time_exceeded, unspecified ]
-    type: str
   ip_protocol:
     description:
     - The IP Protocol type when ether_type is ip.
     choices: [ eigrp, egp, icmp, icmpv6, igmp, igp, l2tp, ospfigp, pim, tcp, udp, unspecified ]
-    type: str
   state:
     description:
     - present, absent, query
     default: present
     choices: [ absent, present, query ]
-    type: str
   stateful:
     description:
     - Determines the statefulness of the filter entry.
-    type: str
   tenant:
     description:
     - The name of the tenant.
-    alias: [ tenant_name ]
-    type: str
+    aliases: [ tenant_name ]
 extends_documentation_fragment: aci
 '''
 
