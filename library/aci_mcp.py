@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 
 DOCUMENTATION = r'''
 ---
-module: aci_mcp_interface
+module: aci_mcp
 short_description: Manage MCP interface policies on Cisco ACI fabrics
 description:
 - Manage MCP interface policies on Cisco ACI fabrics.
@@ -24,11 +24,11 @@ version_added: '2.4'
 requirements:
 - ACI Fabric 1.0(3f)+
 options:
-  mcp_interface:
+  mcp:
     description:
     - The name of the MCP interface.
     required: yes
-    aliases: [ name ]
+    aliases: [ mcp_interface, name ]
   description:
     description:
     - Description for the MCP interface.
@@ -49,11 +49,11 @@ extends_documentation_fragment: aci
 
 # FIXME: Add more, better examples
 EXAMPLES = r'''
-- aci_mcp_interface:
+- aci_mcp:
     hostname: '{{ hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'
-    mcp_interface: '{{ mcp_interface }}'
+    mcp: '{{ mcp }}'
     description: '{{ descr }}'
     admin_state: '{{ admin_state }}'
 '''
@@ -69,7 +69,7 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
-        mcp_interface=dict(type='str', required=False, aliases=['name']),  # Not required for querying all objects
+        mcp=dict(type='str', required=False, aliases=['mcp_interface', 'name']),  # Not required for querying all objects
         description=dict(type='str', aliases=['descr']),
         admin_state=dict(type='str', choices=['disabled', 'enabled']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
@@ -81,7 +81,7 @@ def main():
         supports_check_mode=True,
     )
 
-    mcp_interface = module.params['mcp_interface']
+    mcp = module.params['mcp']
     description = module.params['description']
     admin_state = module.params['admin_state']
     state = module.params['state']
@@ -89,13 +89,13 @@ def main():
     aci = ACIModule(module)
 
     # TODO: This logic could be cleaner.
-    if mcp_interface is not None:
-        path = 'api/mo/uni/infra/mcpIfP--%(mcp_interface)s.json' % module.params
+    if mcp is not None:
+        path = 'api/mo/uni/infra/mcpIfP--%(mcp)s.json' % module.params
     elif state == 'query':
         # Query all objects
         path = 'api/node/class/mcpIfPol.json'
     else:
-        module.fail_json(msg="Parameter 'mcp_interface' is required for state 'absent' or 'present'")
+        module.fail_json(msg="Parameter 'mcp' is required for state 'absent' or 'present'")
 
     aci.result['url'] = '%(protocol)s://%(hostname)s/' % aci.params + path
 
@@ -103,7 +103,7 @@ def main():
 
     if state == 'present':
         # Filter out module parameters with null values
-        aci.payload(aci_class='mcpIfPol', class_config=dict(name=mcp_interface, descr=description, adminSt=admin_state))
+        aci.payload(aci_class='mcpIfPol', class_config=dict(name=mcp, descr=description, adminSt=admin_state))
 
         # Generate config diff which will be used as POST request body
         aci.get_diff(aci_class='mcpIfPol')
