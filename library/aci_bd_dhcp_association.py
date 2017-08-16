@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_bd_dhcp_assocation
-short_description: Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics [dhcp:Lbl]
+short_description: Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics (dhcp:Lbl)
 description:
 - Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(dhcp:Lbl) at U(https://developer.cisco.com/media/mim-ref/MO-dhcpLbl.html).
+  I(dhcp:Lbl) at U(https://developer.cisco.com/media/mim-ref/MO-dhcpLbl.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

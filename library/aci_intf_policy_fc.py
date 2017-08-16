@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_intf_policy_fc
-short_description: Manage Fibre Channel interface policies on Cisco ACI fabrics [fc:IfPol]
+short_description: Manage Fibre Channel interface policies on Cisco ACI fabrics (fc:IfPol)
 description:
 - Manage ACI Fiber Channel interface policies on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(fc:IfPol) at U(https://developer.cisco.com/media/mim-ref/MO-fcIfPol.html).
+  I(fc:IfPol) at U(https://developer.cisco.com/media/mim-ref/MO-fcIfPol.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_filter_entry
-short_description: Manage filter entries on Cisco ACI fabrics [vz:Entry]
+short_description: Manage filter entries on Cisco ACI fabrics (vz:Entry)
 description:
 - Manage filter entries for a filter on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(vz:Entry) at U(https://developer.cisco.com/media/mim-ref/MO-vzEntry.html).
+  I(vz:Entry) at U(https://developer.cisco.com/media/mim-ref/MO-vzEntry.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

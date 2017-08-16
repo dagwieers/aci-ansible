@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_aaa_login_domain
-short_description: Manage login domains on Cisco ACI fabrics [aaa:LoginDomain]
+short_description: Manage login domains on Cisco ACI fabrics (aaa:LoginDomain)
 description:
 - Manage login domains on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(aaa:LoginDomain) at U(https://developer.cisco.com/media/mim-ref/MO-aaaLoginDomain.html).
+  I(aaa:LoginDomain) at U(https://developer.cisco.com/media/mim-ref/MO-aaaLoginDomain.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

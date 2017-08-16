@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_tenant_span_src_group
-short_description: Manage span source groups on Cisco ACI fabrics [span:SrcGrp]
+short_description: Manage span source groups on Cisco ACI fabrics (span:SrcGrp)
 description:
 - Manage span source groups on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(span:SrcGrp) at U(https://developer.cisco.com/media/mim-ref/MO-spanSrcGrp.html).
+  I(span:SrcGrp) at U(https://developer.cisco.com/media/mim-ref/MO-spanSrcGrp.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

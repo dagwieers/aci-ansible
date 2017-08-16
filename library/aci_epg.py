@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_epg
-short_description: Manage End Point Groups (EPG) on Cisco ACI fabrics [fv:AEPg]
+short_description: Manage End Point Groups (EPG) on Cisco ACI fabrics (fv:AEPg)
 description:
 - Manage End Point Groups (EPG) on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(fv:AEPg) at U(https://developer.cisco.com/media/mim-ref/MO-fvAEPg.html).
+  I(fv:AEPg) at U(https://developer.cisco.com/media/mim-ref/MO-fvAEPg.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

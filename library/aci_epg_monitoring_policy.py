@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_epg_monitoring_policy
-short_description: Manage monitoring policies on Cisco ACI fabrics [mon:EPGPol]
+short_description: Manage monitoring policies on Cisco ACI fabrics (mon:EPGPol)
 description:
 - Manage monitoring policies on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(mon:EPGPol) at U(https://developer.cisco.com/media/mim-ref/MO-monEPGPol.html).
+  I(mon:EPGPol) at U(https://developer.cisco.com/media/mim-ref/MO-monEPGPol.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

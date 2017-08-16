@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_l3out_route_tag_policy
-short_description: Manage route tag policies on Cisco ACI fabrics [l3ext:RouteTagPol]
+short_description: Manage route tag policies on Cisco ACI fabrics (l3ext:RouteTagPol)
 description:
 - Manage route tag policies on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(l3ext:RouteTagPol) at U(https://developer.cisco.com/media/mim-ref/MO-l3extRouteTagPol.html).
+  I(l3ext:RouteTagPol) at U(https://developer.cisco.com/media/mim-ref/MO-l3extRouteTagPol.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

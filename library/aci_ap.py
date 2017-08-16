@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_ap
-short_description: Manage top level Application Profile (AP) objects on Cisco ACI fabrics [fv:Ap]
+short_description: Manage top level Application Profile (AP) objects on Cisco ACI fabrics (fv:Ap)
 description:
 - Manage top level Application Profile (AP) objects on Cisco ACI fabrics
 - More information from the internal APIC class
-  C(fv:Ap) at U(https://developer.cisco.com/media/mim-ref/MO-fvAp.html).
+  I(fv:Ap) at U(https://developer.cisco.com/media/mim-ref/MO-fvAp.html).
 notes:
 - This module does not manage EPGs, see M(aci_epg) to do this.
 - The C(tenant) used must exist before using this module in your playbook.

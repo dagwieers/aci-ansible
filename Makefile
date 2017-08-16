@@ -6,6 +6,7 @@ all: test
 
 docs:
 	PYTHONPATH=../ansible.git/lib $(FORMATTER) -t rst --template-dir=../ansible.git/docs/templates --module-dir=library -o docs/
+	python README.py
 
 pyflakes:
 	-pyflakes library/*.py

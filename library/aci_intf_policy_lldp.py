@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_intf_policy_lldp
-short_description: Manage LLDP interface policies on Cisco ACI fabrics [lldp:IfPol]
+short_description: Manage LLDP interface policies on Cisco ACI fabrics (lldp:IfPol)
 description:
 - Manage LLDP interface policies on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(lldp:IfPol) at U(https://developer.cisco.com/media/mim-ref/MO-lldpIfPol.html).
+  I(lldp:IfPol) at U(https://developer.cisco.com/media/mim-ref/MO-lldpIfPol.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

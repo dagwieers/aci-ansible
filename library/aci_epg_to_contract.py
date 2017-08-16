@@ -13,12 +13,12 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_epg_to_contract
-short_description: Manage EPG to Contract bindings on Cisco ACI fabrics [fv:RsCons and fvRsProv]
+short_description: Bind EPGs to Contracts on Cisco ACI fabrics (fv:RsCons and fvRsProv)
 description:
-- Manage EPG to Contract bindings on Cisco ACI fabrics.
+- Bind EPGs to Contracts on Cisco ACI fabrics.
 - More information from the internal APIC classes
-  C(fv:RsCons) at U(https://developer.cisco.com/media/mim-ref/MO-fvRsCons.html) and
-  C(fv:RsProv) at U(https://developer.cisco.com/media/mim-ref/MO-fvRsProv.html).
+  I(fv:RsCons) at U(https://developer.cisco.com/media/mim-ref/MO-fvRsCons.html) and
+  I(fv:RsProv) at U(https://developer.cisco.com/media/mim-ref/MO-fvRsProv.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

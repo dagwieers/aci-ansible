@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_bd_subnet
-short_description: Manage Subnets on Cisco ACI fabrics [fv:Subnet]
+short_description: Manage Subnets on Cisco ACI fabrics (fv:Subnet)
 description:
 - Manage Subnets on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(fv:Subnet) at U(https://developer.cisco.com/media/mim-ref/MO-fvSubnet.html).
+  I(fv:Subnet) at U(https://developer.cisco.com/media/mim-ref/MO-fvSubnet.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

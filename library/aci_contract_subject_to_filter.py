@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_contract_subject_to_filter
-short_description: Bind Contract Subjects to Filters on Cisco ACI fabrics [vz:RsSubjFiltAtt]
+short_description: Bind Contract Subjects to Filters on Cisco ACI fabrics (vz:RsSubjFiltAtt)
 description:
 - Bind Contract Subjects to Filters on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(vz:RsSubjFiltAtt) at U(https://developer.cisco.com/media/mim-ref/MO-vzRsSubjFiltAtt.html).
+  I(vz:RsSubjFiltAtt) at U(https://developer.cisco.com/media/mim-ref/MO-vzRsSubjFiltAtt.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

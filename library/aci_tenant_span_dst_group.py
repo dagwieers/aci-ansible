@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_tenant_span_dst_group
-short_description: Manage SPAN destination groups on Cisco ACI fabrics [span:DestGrp]
+short_description: Manage SPAN destination groups on Cisco ACI fabrics (span:DestGrp)
 description:
 - Manage SPAN destination groups on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(span:DestGrp) at U(https://developer.cisco.com/media/mim-ref/MO-spanDestGrp.html).
+  I(span:DestGrp) at U(https://developer.cisco.com/media/mim-ref/MO-spanDestGrp.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)

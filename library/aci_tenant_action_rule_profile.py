@@ -13,11 +13,11 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_tenant_action_rule_profile
-short_description: Manage action rule profiles on Cisco ACI fabrics [rtctrl:AttrP]
+short_description: Manage action rule profiles on Cisco ACI fabrics (rtctrl:AttrP)
 description:
 - Manage action rule profiles on Cisco ACI fabrics.
 - More information from the internal APIC class
-  C(rtctrl:AttrP) at U(https://developer.cisco.com/media/mim-ref/MO-rtctrlAttrP.html).
+  I(rtctrl:AttrP) at U(https://developer.cisco.com/media/mim-ref/MO-rtctrlAttrP.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
