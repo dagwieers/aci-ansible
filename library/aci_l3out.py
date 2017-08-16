@@ -22,9 +22,10 @@ author:
 - Jacob McGill (@jmcgill298)
 version_added: '2.4'
 requirements:
-    - ACI Fabric 1.0(3f)+
+- ACI Fabric 1.0(3f)+
 notes:
-    - Tenant should already exist
+- The C(tenant) used must exist before using this module in your playbook.
+  The M(aci_tenant) module can be used for this.
 options:
    action:
         description:

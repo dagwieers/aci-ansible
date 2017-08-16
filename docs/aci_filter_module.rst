@@ -1,8 +1,8 @@
 .. _aci_filter:
 
 
-aci_filter - Manages top level filter objects on Cisco ACI fabrics
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_filter - Manages top level filter objects on Cisco ACI fabrics [vz:Filter]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -16,6 +16,7 @@ Synopsis
 --------
 
 * Manages top level filter objects on Cisco ACI fabrics.
+* More information from the internal APIC class ``vz:Filter`` at https://developer.cisco.com/media/mim-ref/MO-vzFilter.html.
 * This modules does not manage filter entries, see :ref:`aci_filter_entry <aci_filter_entry>` for this functionality.
 
 
@@ -150,7 +151,7 @@ Notes
 -----
 
 .. note::
-    - The tenant used must exist before using this module in your playbook. The :ref:`aci_tenant <aci_tenant>` module can be used for this.
+    - The ``tenant`` used must exist before using this module in your playbook. The :ref:`aci_tenant <aci_tenant>` module can be used for this.
     - By default, if an environment variable ``<protocol>_proxy`` is set on the target host, requests will be sent through that proxy. This behaviour can be overridden by setting a variable for this task (see `setting the environment <http://docs.ansible.com/playbooks_environment.html>`_), or by using the ``use_proxy`` option.
     - HTTP redirects can redirect from HTTP to HTTPS so you should be sure that your proxy environment for both protocols is correct.
 
@@ -162,10 +163,10 @@ Status
 This module is flagged as **preview** which means that it is not guaranteed to have a backwards compatible interface.
 
 
-Support
-~~~~~~~
+Support Level
+~~~~~~~~~~~~~
 
-This module is community maintained without core committer oversight.
+This module is maintained by The Ansible Community
 
 For more information on what this means please read :doc:`modules_support`
 

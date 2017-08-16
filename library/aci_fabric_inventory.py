@@ -23,7 +23,6 @@ author:
 version_added: '2.4'
 requirements:
     - ACI Fabric 1.0(3f)+
-notes:
 options:
     action:
         description:

@@ -1,8 +1,8 @@
 .. _aci_taboo_contract:
 
 
-aci_taboo_contract - Manage taboo contracts on Cisco ACI fabrics
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_taboo_contract - Manage taboo contracts on Cisco ACI fabrics [vz:BrCP]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -16,6 +16,7 @@ Synopsis
 --------
 
 * Manage taboo contracts on Cisco ACI fabrics.
+* More information from the internal APIC class ``vz:BrCP`` at https://developer.cisco.com/media/mim-ref/MO-vzBrCP.html.
 
 
 Requirements (on host that executes module)
@@ -41,7 +42,7 @@ Options
     <td>no</td>
     <td></td>
         <td></td>
-        <td><div>Description for the filter.</div></br>
+        <td><div>The description for the Taboo Contract.</div></br>
     <div style="font-size: small;">aliases: descr<div>        </td></tr>
                 <tr><td>hostname<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
@@ -59,11 +60,16 @@ Options
     <td></td>
         <td><ul><li>application-profile</li><li>context</li><li>global</li><li>tenant</li></ul></td>
         <td><div>The scope of a service contract.</div><div>The APIC defaults new Taboo Contracts to a scope of context (VRF).</div>        </td></tr>
+                <tr><td>state<br/><div style="font-size: small;"></div></td>
+    <td>no</td>
+    <td>present</td>
+        <td><ul><li>absent</li><li>present</li><li>query</li></ul></td>
+        <td><div>Use <code>present</code> or <code>absent</code> for adding or removing.</div><div>Use <code>query</code> for listing an object or multiple objects.</div>        </td></tr>
                 <tr><td>taboo_contract<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
         <td></td>
-        <td><div>Taboo Contract name.</div></br>
+        <td><div>The name of the Taboo Contract.</div></br>
     <div style="font-size: small;">aliases: name<div>        </td></tr>
                 <tr><td>tenant<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
@@ -121,7 +127,7 @@ Notes
 -----
 
 .. note::
-    - The tenant used must exist before using this module in your playbook. The :ref:`aci_tenant <aci_tenant>` module can be used for this.
+    - The ``tenant`` used must exist before using this module in your playbook. The :ref:`aci_tenant <aci_tenant>` module can be used for this.
     - By default, if an environment variable ``<protocol>_proxy`` is set on the target host, requests will be sent through that proxy. This behaviour can be overridden by setting a variable for this task (see `setting the environment <http://docs.ansible.com/playbooks_environment.html>`_), or by using the ``use_proxy`` option.
     - HTTP redirects can redirect from HTTP to HTTPS so you should be sure that your proxy environment for both protocols is correct.
 
@@ -133,10 +139,10 @@ Status
 This module is flagged as **preview** which means that it is not guaranteed to have a backwards compatible interface.
 
 
-Support
-~~~~~~~
+Support Level
+~~~~~~~~~~~~~
 
-This module is community maintained without core committer oversight.
+This module is maintained by The Ansible Community
 
 For more information on what this means please read :doc:`modules_support`
 

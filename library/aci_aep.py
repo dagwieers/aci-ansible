@@ -13,9 +13,12 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = r'''
 ---
 module: aci_aep
-short_description: Manage Attachable Access Entity Profile on Cisco ACI fabrics
+short_description: Manage attachable Access Entity Profile (AEP) on Cisco ACI fabrics [infra:AttEntityP]
 description:
-- Connect to external virtual and physical domains by using Attachable Access Entity Profiles on Cisco ACI fabrics.
+- Connect to external virtual and physical domains by using
+  attachable Access Entity Profiles (AEP) on Cisco ACI fabrics.
+- More information from the internal APIC class
+  C(infra:AttEntityP) at U(https://developer.cisco.com/media/mim-ref/MO-infraAttEntityP.html).
 author:
 - Swetha Chunduri (@schunduri)
 - Dag Wieers (@dagwieers)
@@ -28,7 +31,7 @@ options:
     description:
     - The name of the Attachable Access Entity Profile.
     required: yes
-    aliases: ['name','aep_name']
+    aliases: [ aep_name, name ]
   description:
     description:
     - Description for the AEP.

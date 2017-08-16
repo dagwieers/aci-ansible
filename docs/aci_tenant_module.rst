@@ -1,8 +1,8 @@
 .. _aci_tenant:
 
 
-aci_tenant - Manage tenants on Cisco ACI fabrics
-++++++++++++++++++++++++++++++++++++++++++++++++
+aci_tenant - Manage tenants on Cisco ACI fabrics [fv:Tenant]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -16,6 +16,7 @@ Synopsis
 --------
 
 * Manage tenants on Cisco ACI fabrics.
+* More information from the internal APIC class ``fv:Tenant`` at https://developer.cisco.com/media/mim-ref/MO-fvTenant.html.
 
 
 Requirements (on host that executes module)
@@ -150,10 +151,10 @@ Status
 This module is flagged as **preview** which means that it is not guaranteed to have a backwards compatible interface.
 
 
-Support
-~~~~~~~
+Support Level
+~~~~~~~~~~~~~
 
-This module is community maintained without core committer oversight.
+This module is maintained by The Ansible Community
 
 For more information on what this means please read :doc:`modules_support`
 

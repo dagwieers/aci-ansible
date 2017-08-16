@@ -263,10 +263,10 @@ Status
 This module is flagged as **preview** which means that it is not guaranteed to have a backwards compatible interface.
 
 
-Support
-~~~~~~~
+Support Level
+~~~~~~~~~~~~~
 
-This module is community maintained without core committer oversight.
+This module is maintained by The Ansible Community
 
 For more information on what this means please read :doc:`modules_support`
 
