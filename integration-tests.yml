@@ -2,4 +2,7 @@
   gather_facts: no
   connection: local
   tasks:
+  - include_tasks: test/integration/targets/aci_filter/tasks/main.yml
+    tags: aci_filter
   - include_tasks: test/integration/targets/aci_tenant/tasks/main.yml
+    tags: aci_tenant

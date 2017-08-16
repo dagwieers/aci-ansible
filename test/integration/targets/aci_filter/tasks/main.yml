@@ -119,6 +119,7 @@
     hostname: '{{ aci_hostname }}'
     username: '{{ aci_username }}'
     password: '{{ aci_password }}'
+    tenant: ansible_test
     validate_certs: no
     state: query
   check_mode: yes
@@ -140,7 +141,6 @@
 - name: Query our filter
   aci_filter:
     <<: *filter_query
-    tenant: ansible_test
     filter: filter_test
   check_mode: yes
   register: cm_query_filter
@@ -148,7 +148,6 @@
 - name: Query our filter
   aci_filter:
     <<: *filter_query
-    tenant: ansible_test
     filter: filter_test
   register: nm_query_filter
 
@@ -191,7 +190,6 @@
 - name: Query non-existing filter (check_mode)
   aci_filter:
     <<: *filter_query
-    tenant: ansible_test
     filter: filter_test
   check_mode: yes
   register: cm_query_non_filter
@@ -199,7 +197,6 @@
 - name: Query non-existing filter (normal mode)
   aci_filter:
     <<: *filter_query
-    tenant: ansible_test
     filter: filter_test
   register: nm_query_non_filter
 
