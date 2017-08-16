@@ -1,7 +1,7 @@
 .. _aci_tenant_ep_retention_policy:
 
 
-aci_tenant_ep_retention_policy - Manage End Point (EP) retention protocol policies on Cisco ACI fabrics [fv:EpRetPol]
+aci_tenant_ep_retention_policy - Manage End Point (EP) retention protocol policies on Cisco ACI fabrics (fv:EpRetPol)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage End Point (EP) retention protocol policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:EpRetPol`` at https://developer.cisco.com/media/mim-ref/MO-fvEpRetPol.html.
+* More information from the internal APIC class *fv:EpRetPol* at https://developer.cisco.com/media/mim-ref/MO-fvEpRetPol.html.
 
 
 Requirements (on host that executes module)

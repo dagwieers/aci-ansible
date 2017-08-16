@@ -1,8 +1,8 @@
 .. _aci_epg_to_contract:
 
 
-aci_epg_to_contract - Manage EPG to Contract bindings on Cisco ACI fabrics [fv:RsCons and fvRsProv]
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_epg_to_contract - Bind EPGs to Contracts on Cisco ACI fabrics (fv:RsCons and fvRsProv)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -15,8 +15,8 @@ aci_epg_to_contract - Manage EPG to Contract bindings on Cisco ACI fabrics [fv:R
 Synopsis
 --------
 
-* Manage EPG to Contract bindings on Cisco ACI fabrics.
-* More information from the internal APIC classes ``fv:RsCons`` at https://developer.cisco.com/media/mim-ref/MO-fvRsCons.html and ``fv:RsProv`` at https://developer.cisco.com/media/mim-ref/MO-fvRsProv.html.
+* Bind EPGs to Contracts on Cisco ACI fabrics.
+* More information from the internal APIC classes *fv:RsCons* at https://developer.cisco.com/media/mim-ref/MO-fvRsCons.html and *fv:RsProv* at https://developer.cisco.com/media/mim-ref/MO-fvRsProv.html.
 
 
 Requirements (on host that executes module)

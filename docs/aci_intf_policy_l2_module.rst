@@ -1,7 +1,7 @@
 .. _aci_intf_policy_l2:
 
 
-aci_intf_policy_l2 - Manage Layer 2 interface policies on Cisco ACI fabrics [l2:IfPol]
+aci_intf_policy_l2 - Manage Layer 2 interface policies on Cisco ACI fabrics (l2:IfPol)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage Layer 2 interface policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``l2:IfPol`` at https://developer.cisco.com/media/mim-ref/MO-l2IfPol.html.
+* More information from the internal APIC class *l2:IfPol* at https://developer.cisco.com/media/mim-ref/MO-l2IfPol.html.
 
 
 Requirements (on host that executes module)

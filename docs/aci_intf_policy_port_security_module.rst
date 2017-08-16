@@ -1,7 +1,7 @@
 .. _aci_intf_policy_port_security:
 
 
-aci_intf_policy_port_security - Manage port security on Cisco ACI fabrics [l2:PortSecurityPol]
+aci_intf_policy_port_security - Manage port security on Cisco ACI fabrics (l2:PortSecurityPol)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage port security on Cisco ACI fabrics.
-* More information from the internal APIC class ``l2:PortSecurityPol`` at https://developer.cisco.com/media/mim-ref/MO-l2PortSecurityPol.html.
+* More information from the internal APIC class *l2:PortSecurityPol* at https://developer.cisco.com/media/mim-ref/MO-l2PortSecurityPol.html.
 
 
 Requirements (on host that executes module)

@@ -1,7 +1,7 @@
 .. _aci_epg:
 
 
-aci_epg - Manage End Point Groups (EPG) on Cisco ACI fabrics [fv:AEPg]
+aci_epg - Manage End Point Groups (EPG) on Cisco ACI fabrics (fv:AEPg)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage End Point Groups (EPG) on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:AEPg`` at https://developer.cisco.com/media/mim-ref/MO-fvAEPg.html.
+* More information from the internal APIC class *fv:AEPg* at https://developer.cisco.com/media/mim-ref/MO-fvAEPg.html.
 
 
 Requirements (on host that executes module)

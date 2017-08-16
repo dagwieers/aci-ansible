@@ -1,7 +1,7 @@
 .. _aci_contract_subject_to_filter:
 
 
-aci_contract_subject_to_filter - Bind Contract Subjects to Filters on Cisco ACI fabrics [vz:RsSubjFiltAtt]
+aci_contract_subject_to_filter - Bind Contract Subjects to Filters on Cisco ACI fabrics (vz:RsSubjFiltAtt)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Bind Contract Subjects to Filters on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:RsSubjFiltAtt`` at https://developer.cisco.com/media/mim-ref/MO-vzRsSubjFiltAtt.html.
+* More information from the internal APIC class *vz:RsSubjFiltAtt* at https://developer.cisco.com/media/mim-ref/MO-vzRsSubjFiltAtt.html.
 
 
 Requirements (on host that executes module)

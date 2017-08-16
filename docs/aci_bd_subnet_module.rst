@@ -1,7 +1,7 @@
 .. _aci_bd_subnet:
 
 
-aci_bd_subnet - Manage Subnets on Cisco ACI fabrics [fv:Subnet]
+aci_bd_subnet - Manage Subnets on Cisco ACI fabrics (fv:Subnet)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage Subnets on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:Subnet`` at https://developer.cisco.com/media/mim-ref/MO-fvSubnet.html.
+* More information from the internal APIC class *fv:Subnet* at https://developer.cisco.com/media/mim-ref/MO-fvSubnet.html.
 
 
 Requirements (on host that executes module)

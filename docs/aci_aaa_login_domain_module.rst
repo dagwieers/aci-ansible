@@ -1,7 +1,7 @@
 .. _aci_aaa_login_domain:
 
 
-aci_aaa_login_domain - Manage login domains on Cisco ACI fabrics [aaa:LoginDomain]
+aci_aaa_login_domain - Manage login domains on Cisco ACI fabrics (aaa:LoginDomain)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage login domains on Cisco ACI fabrics.
-* More information from the internal APIC class ``aaa:LoginDomain`` at https://developer.cisco.com/media/mim-ref/MO-aaaLoginDomain.html.
+* More information from the internal APIC class *aaa:LoginDomain* at https://developer.cisco.com/media/mim-ref/MO-aaaLoginDomain.html.
 
 
 Requirements (on host that executes module)

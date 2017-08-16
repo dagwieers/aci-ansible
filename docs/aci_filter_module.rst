@@ -1,7 +1,7 @@
 .. _aci_filter:
 
 
-aci_filter - Manages top level filter objects on Cisco ACI fabrics [vz:Filter]
+aci_filter - Manages top level filter objects on Cisco ACI fabrics (vz:Filter)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manages top level filter objects on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:Filter`` at https://developer.cisco.com/media/mim-ref/MO-vzFilter.html.
+* More information from the internal APIC class *vz:Filter* at https://developer.cisco.com/media/mim-ref/MO-vzFilter.html.
 * This modules does not manage filter entries, see :ref:`aci_filter_entry <aci_filter_entry>` for this functionality.
 
 

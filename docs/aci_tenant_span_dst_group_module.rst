@@ -1,7 +1,7 @@
 .. _aci_tenant_span_dst_group:
 
 
-aci_tenant_span_dst_group - Manage SPAN destination groups on Cisco ACI fabrics [span:DestGrp]
+aci_tenant_span_dst_group - Manage SPAN destination groups on Cisco ACI fabrics (span:DestGrp)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage SPAN destination groups on Cisco ACI fabrics.
-* More information from the internal APIC class ``span:DestGrp`` at https://developer.cisco.com/media/mim-ref/MO-spanDestGrp.html.
+* More information from the internal APIC class *span:DestGrp* at https://developer.cisco.com/media/mim-ref/MO-spanDestGrp.html.
 
 
 Requirements (on host that executes module)

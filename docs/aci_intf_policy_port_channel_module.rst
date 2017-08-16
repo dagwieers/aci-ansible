@@ -1,7 +1,7 @@
 .. _aci_intf_policy_port_channel:
 
 
-aci_intf_policy_port_channel - Manage port channel interface policies on Cisco ACI fabrics [lacp:LagPol]
+aci_intf_policy_port_channel - Manage port channel interface policies on Cisco ACI fabrics (lacp:LagPol)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage port channel interface policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``lacp:LagPol`` at https://developer.cisco.com/media/mim-ref/MO-lacpLagPol.html.
+* More information from the internal APIC class *lacp:LagPol* at https://developer.cisco.com/media/mim-ref/MO-lacpLagPol.html.
 
 
 Requirements (on host that executes module)

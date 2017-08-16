@@ -1,7 +1,7 @@
 .. _aci_bd:
 
 
-aci_bd - Manage Bridge Domains (BD) on Cisco ACI Fabrics [fv:BD]
+aci_bd - Manage Bridge Domains (BD) on Cisco ACI Fabrics (fv:BD)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manages Bridge Domains (BD) on Cisco ACI Fabrics.
-* More information from the internal APIC class ``fv:BD`` at https://developer.cisco.com/media/mim-ref/MO-fvBD.html.
+* More information from the internal APIC class *fv:BD* at https://developer.cisco.com/media/mim-ref/MO-fvBD.html.
 
 
 Requirements (on host that executes module)

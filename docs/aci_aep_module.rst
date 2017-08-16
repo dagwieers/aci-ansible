@@ -1,7 +1,7 @@
 .. _aci_aep:
 
 
-aci_aep - Manage attachable Access Entity Profile (AEP) on Cisco ACI fabrics [infra:AttEntityP]
+aci_aep - Manage attachable Access Entity Profile (AEP) on Cisco ACI fabrics (infra:AttEntityP)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Connect to external virtual and physical domains by using attachable Access Entity Profiles (AEP) on Cisco ACI fabrics.
-* More information from the internal APIC class ``infra:AttEntityP`` at https://developer.cisco.com/media/mim-ref/MO-infraAttEntityP.html.
+* More information from the internal APIC class *infra:AttEntityP* at https://developer.cisco.com/media/mim-ref/MO-infraAttEntityP.html.
 
 
 Requirements (on host that executes module)

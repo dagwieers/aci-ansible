@@ -1,7 +1,7 @@
 .. _aci_taboo_contract:
 
 
-aci_taboo_contract - Manage taboo contracts on Cisco ACI fabrics [vz:BrCP]
+aci_taboo_contract - Manage taboo contracts on Cisco ACI fabrics (vz:BrCP)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage taboo contracts on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:BrCP`` at https://developer.cisco.com/media/mim-ref/MO-vzBrCP.html.
+* More information from the internal APIC class *vz:BrCP* at https://developer.cisco.com/media/mim-ref/MO-vzBrCP.html.
 
 
 Requirements (on host that executes module)

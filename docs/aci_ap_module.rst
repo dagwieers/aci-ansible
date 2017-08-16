@@ -1,7 +1,7 @@
 .. _aci_ap:
 
 
-aci_ap - Manage top level Application Profile (AP) objects on Cisco ACI fabrics [fv:Ap]
+aci_ap - Manage top level Application Profile (AP) objects on Cisco ACI fabrics (fv:Ap)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage top level Application Profile (AP) objects on Cisco ACI fabrics
-* More information from the internal APIC class ``fv:Ap`` at https://developer.cisco.com/media/mim-ref/MO-fvAp.html.
+* More information from the internal APIC class *fv:Ap* at https://developer.cisco.com/media/mim-ref/MO-fvAp.html.
 
 
 Requirements (on host that executes module)

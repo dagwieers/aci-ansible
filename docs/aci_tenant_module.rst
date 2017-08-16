@@ -1,7 +1,7 @@
 .. _aci_tenant:
 
 
-aci_tenant - Manage tenants on Cisco ACI fabrics [fv:Tenant]
+aci_tenant - Manage tenants on Cisco ACI fabrics (fv:Tenant)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage tenants on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:Tenant`` at https://developer.cisco.com/media/mim-ref/MO-fvTenant.html.
+* More information from the internal APIC class *fv:Tenant* at https://developer.cisco.com/media/mim-ref/MO-fvTenant.html.
 
 
 Requirements (on host that executes module)

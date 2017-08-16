@@ -1,7 +1,7 @@
 .. _aci_contract:
 
 
-aci_contract - Manage contract resources on Cisco ACI fabrics [vz:BrCP]
+aci_contract - Manage contract resources on Cisco ACI fabrics (vz:BrCP)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage Contract resources on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:BrCP`` at https://developer.cisco.com/media/mim-ref/MO-vzBrCP.html.
+* More information from the internal APIC class *vz:BrCP* at https://developer.cisco.com/media/mim-ref/MO-vzBrCP.html.
 
 
 Requirements (on host that executes module)

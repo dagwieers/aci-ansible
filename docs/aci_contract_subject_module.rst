@@ -1,7 +1,7 @@
 .. _aci_contract_subject:
 
 
-aci_contract_subject - Manage initial Contract Subjects on Cisco ACI fabrics [vz:Subj]
+aci_contract_subject - Manage initial Contract Subjects on Cisco ACI fabrics (vz:Subj)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage initial Contract Subjects on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:Subj`` at https://developer.cisco.com/media/mim-ref/MO-vzSubj.html.
+* More information from the internal APIC class *vz:Subj* at https://developer.cisco.com/media/mim-ref/MO-vzSubj.html.
 
 
 Requirements (on host that executes module)

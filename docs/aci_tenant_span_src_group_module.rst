@@ -1,7 +1,7 @@
 .. _aci_tenant_span_src_group:
 
 
-aci_tenant_span_src_group - Manage span source groups on Cisco ACI fabrics [span:SrcGrp]
+aci_tenant_span_src_group - Manage span source groups on Cisco ACI fabrics (span:SrcGrp)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage span source groups on Cisco ACI fabrics.
-* More information from the internal APIC class ``span:SrcGrp`` at https://developer.cisco.com/media/mim-ref/MO-spanSrcGrp.html.
+* More information from the internal APIC class *span:SrcGrp* at https://developer.cisco.com/media/mim-ref/MO-spanSrcGrp.html.
 
 
 Requirements (on host that executes module)

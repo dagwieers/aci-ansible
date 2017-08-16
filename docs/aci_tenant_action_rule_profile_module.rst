@@ -1,7 +1,7 @@
 .. _aci_tenant_action_rule_profile:
 
 
-aci_tenant_action_rule_profile - Manage action rule profiles on Cisco ACI fabrics [rtctrl:AttrP]
+aci_tenant_action_rule_profile - Manage action rule profiles on Cisco ACI fabrics (rtctrl:AttrP)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage action rule profiles on Cisco ACI fabrics.
-* More information from the internal APIC class ``rtctrl:AttrP`` at https://developer.cisco.com/media/mim-ref/MO-rtctrlAttrP.html.
+* More information from the internal APIC class *rtctrl:AttrP* at https://developer.cisco.com/media/mim-ref/MO-rtctrlAttrP.html.
 
 
 Requirements (on host that executes module)

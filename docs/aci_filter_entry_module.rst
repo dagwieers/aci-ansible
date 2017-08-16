@@ -1,7 +1,7 @@
 .. _aci_filter_entry:
 
 
-aci_filter_entry - Manage filter entries on Cisco ACI fabrics [vz:Entry]
+aci_filter_entry - Manage filter entries on Cisco ACI fabrics (vz:Entry)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage filter entries for a filter on Cisco ACI fabrics.
-* More information from the internal APIC class ``vz:Entry`` at https://developer.cisco.com/media/mim-ref/MO-vzEntry.html.
+* More information from the internal APIC class *vz:Entry* at https://developer.cisco.com/media/mim-ref/MO-vzEntry.html.
 
 
 Requirements (on host that executes module)

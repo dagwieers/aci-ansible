@@ -1,7 +1,7 @@
 .. _aci_bd_dhcp_assocation:
 
 
-aci_bd_dhcp_assocation - Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics [dhcp:Lbl]
+aci_bd_dhcp_assocation - Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics (dhcp:Lbl)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics.
-* More information from the internal APIC class ``dhcp:Lbl`` at https://developer.cisco.com/media/mim-ref/MO-dhcpLbl.html.
+* More information from the internal APIC class *dhcp:Lbl* at https://developer.cisco.com/media/mim-ref/MO-dhcpLbl.html.
 
 
 Requirements (on host that executes module)

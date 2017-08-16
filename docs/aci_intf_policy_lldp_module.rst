@@ -1,7 +1,7 @@
 .. _aci_intf_policy_lldp:
 
 
-aci_intf_policy_lldp - Manage LLDP interface policies on Cisco ACI fabrics [lldp:IfPol]
+aci_intf_policy_lldp - Manage LLDP interface policies on Cisco ACI fabrics (lldp:IfPol)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage LLDP interface policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``lldp:IfPol`` at https://developer.cisco.com/media/mim-ref/MO-lldpIfPol.html.
+* More information from the internal APIC class *lldp:IfPol* at https://developer.cisco.com/media/mim-ref/MO-lldpIfPol.html.
 
 
 Requirements (on host that executes module)

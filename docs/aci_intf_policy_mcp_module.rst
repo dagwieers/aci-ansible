@@ -1,7 +1,7 @@
 .. _aci_intf_policy_mcp:
 
 
-aci_intf_policy_mcp - Manage MCP interface policies on Cisco ACI fabrics [mcp:IfPol]
+aci_intf_policy_mcp - Manage MCP interface policies on Cisco ACI fabrics (mcp:IfPol)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage MCP interface policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``mcp:IfPol`` at https://developer.cisco.com/media/mim-ref/MO-mcpIfPol.html.
+* More information from the internal APIC class *mcp:IfPol* at https://developer.cisco.com/media/mim-ref/MO-mcpIfPol.html.
 
 
 Requirements (on host that executes module)

@@ -1,7 +1,7 @@
 .. _aci_l3out_route_tag_policy:
 
 
-aci_l3out_route_tag_policy - Manage route tag policies on Cisco ACI fabrics [l3ext:RouteTagPol]
+aci_l3out_route_tag_policy - Manage route tag policies on Cisco ACI fabrics (l3ext:RouteTagPol)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage route tag policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``l3ext:RouteTagPol`` at https://developer.cisco.com/media/mim-ref/MO-l3extRouteTagPol.html.
+* More information from the internal APIC class *l3ext:RouteTagPol* at https://developer.cisco.com/media/mim-ref/MO-l3extRouteTagPol.html.
 
 
 Requirements (on host that executes module)

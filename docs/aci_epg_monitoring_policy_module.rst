@@ -1,7 +1,7 @@
 .. _aci_epg_monitoring_policy:
 
 
-aci_epg_monitoring_policy - Manage monitoring policies on Cisco ACI fabrics [mon:EPGPol]
+aci_epg_monitoring_policy - Manage monitoring policies on Cisco ACI fabrics (mon:EPGPol)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
@@ -16,7 +16,7 @@ Synopsis
 --------
 
 * Manage monitoring policies on Cisco ACI fabrics.
-* More information from the internal APIC class ``mon:EPGPol`` at https://developer.cisco.com/media/mim-ref/MO-monEPGPol.html.
+* More information from the internal APIC class *mon:EPGPol* at https://developer.cisco.com/media/mim-ref/MO-monEPGPol.html.
 
 
 Requirements (on host that executes module)

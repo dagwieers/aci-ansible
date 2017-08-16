@@ -1,8 +1,8 @@
 .. _aci_bd_to_l3out:
 
 
-aci_bd_to_l3out - Manage Bridge Domain to L3 Out Bindings on Cisco ACI fabrics [fv:RsBDToOut]
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_bd_to_l3out - Bind Bridge Domain to L3 Out on Cisco ACI fabrics (fv:RsBDToOut)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -15,8 +15,8 @@ aci_bd_to_l3out - Manage Bridge Domain to L3 Out Bindings on Cisco ACI fabrics [
 Synopsis
 --------
 
-* Manage Bridge Domain to L3 Out Bindings on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:RsBDToOut`` at https://developer.cisco.com/media/mim-ref/MO-fvRsBDToOut.html.
+* Bind Bridge Domain to L3 Out on Cisco ACI fabrics.
+* More information from the internal APIC class *fv:RsBDToOut* at https://developer.cisco.com/media/mim-ref/MO-fvRsBDToOut.html.
 
 
 Requirements (on host that executes module)

@@ -1,8 +1,8 @@
 .. _aci_epg_to_domain:
 
 
-aci_epg_to_domain - Manage EPG to Domain bindings on Cisco ACI fabrics [fv:RsDomAtt]
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_epg_to_domain - Bind EPGs to Domains on Cisco ACI fabrics (fv:RsDomAtt)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -15,8 +15,8 @@ aci_epg_to_domain - Manage EPG to Domain bindings on Cisco ACI fabrics [fv:RsDom
 Synopsis
 --------
 
-* Manage EPG to Physical and Virtual Domains on Cisco ACI fabrics.
-* More information from the internal APIC class ``fv:RsDomAtt`` at https://developer.cisco.com/media/mim-ref/MO-fvRsDomAtt.html.
+* Bind EPGs to Physical and Virtual Domains on Cisco ACI fabrics.
+* More information from the internal APIC class *fv:RsDomAtt* at https://developer.cisco.com/media/mim-ref/MO-fvRsDomAtt.html.
 
 
 Requirements (on host that executes module)

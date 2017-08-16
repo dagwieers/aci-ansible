@@ -1,8 +1,8 @@
 .. _aci_vrf:
 
 
-aci_vrf - Manage VRF (private networks aka. contexts) on Cisco ACI fabrics [fvCtx]
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+aci_vrf - Manage VRF (private networks aka. contexts) on Cisco ACI fabrics (fv:Ctx)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.4
 
@@ -17,7 +17,7 @@ Synopsis
 
 * Manage VRF (private networks aka. contexts) on Cisco ACI fabrics.
 * Each context is a private network associated to a tenant, i.e. VRF.
-* More information from the internal APIC class ``fv:Ctx`` at https://developer.cisco.com/media/mim-ref/MO-fvCtx.html.
+* More information from the internal APIC class *fv:Ctx* at https://developer.cisco.com/media/mim-ref/MO-fvCtx.html.
 
 
 Requirements (on host that executes module)
