@@ -36,7 +36,7 @@ options:
   subject:
     description:
     - The contract subject name.
-    aliases: [ name, subject_name ]
+    aliases: [ contract_subject, name, subject_name ]
   contract:
     description:
     - The name of the Contract.
@@ -136,7 +136,7 @@ def main():
     argument_spec = aci_argument_spec
     argument_spec.update(
         contract=dict(type='str', aliases=['contract_name']),
-        subject=dict(type='str', aliases=['name', 'subject_name']),
+        subject=dict(type='str', aliases=['contract_subject', 'name', 'subject_name']),
         tenant=dict(type='str', aliases=['tenant_name']),
         priority=dict(type='str', choices=['unspecified', 'level1', 'level2', 'level3']),
         reverse_filter=dict(type='str', choices=['yes', 'no']),
@@ -147,7 +147,7 @@ def main():
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         method=dict(type='str', choices=['delete', 'get', 'post'], aliases=['action'], removed_in_version='2.6'),  # Deprecated starting from v2.6
         directive=dict(type='str', removed_in_version='2.4'),  # Deprecated starting from v2.4
-        filter_name=dict(type='str', removed_in_version='2.4')  # Deprecated starting from v2.4
+        filter=dict(type='str', aliases=['filter_name'], removed_in_version='2.4')  # Deprecated starting from v2.4
     )
 
     module = AnsibleModule(
@@ -164,7 +164,7 @@ def main():
     dscp = module.params['dscp']
     description = module.params['description']
     # contract = module.params['contract']
-    filter_name = module.params['filter_name']
+    filter_name = module.params['filter']
     directive = module.params['directive']
     consumer_match = module.params['consumer_match']
     provider_match = module.params['provider_match']
