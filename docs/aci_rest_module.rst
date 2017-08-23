@@ -33,6 +33,7 @@ Options
 .. raw:: html
 
     <table border=1 cellpadding=4>
+
     <tr>
     <th class="head">parameter</th>
     <th class="head">required</th>
@@ -40,67 +41,129 @@ Options
     <th class="head">choices</th>
     <th class="head">comments</th>
     </tr>
-                <tr><td>content<br/><div style="font-size: small;"></div></td>
+
+    <tr>
+    <td>content<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>When used instead of <code>src</code>, sets the content of the API request directly.</div><div>This may be convenient to template simple requests, for anything complex use the <span class='module'>template</span> module.</div>        </td></tr>
-                <tr><td>hostname<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>When used instead of <code>src</code>, sets the content of the API request directly.</div>
+        <div>This may be convenient to template simple requests, for anything complex use the <span class='module'>template</span> module.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>hostname<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
-        <td></td>
-        <td><div>IP Address or hostname of APIC resolvable by Ansible control host.</div></br>
-    <div style="font-size: small;">aliases: host<div>        </td></tr>
-                <tr><td>method<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>IP Address or hostname of APIC resolvable by Ansible control host.</div>
+        </br><div style="font-size: small;">aliases: host</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>method<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td>get</td>
-        <td><ul><li>delete</li><li>get</li><li>post</li></ul></td>
-        <td><div>The HTTP method of the request.</div><div>Using <code>delete</code> is typically used for deleting objects.</div><div>Using <code>get</code> is typically used for querying objects.</div><div>Using <code>post</code> is typically used for modifying objects.</div></br>
-    <div style="font-size: small;">aliases: action<div>        </td></tr>
-                <tr><td>password<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>delete</li><li>get</li><li>post</li></ul></td>
+    <td>
+        <div>The HTTP method of the request.</div>
+        <div>Using <code>delete</code> is typically used for deleting objects.</div>
+        <div>Using <code>get</code> is typically used for querying objects.</div>
+        <div>Using <code>post</code> is typically used for modifying objects.</div>
+        </br><div style="font-size: small;">aliases: action</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>password<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
-        <td></td>
-        <td><div>The password to use for authentication.</div>        </td></tr>
-                <tr><td>path<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The password to use for authentication.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>path<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
-        <td></td>
-        <td><div>URI being used to execute API calls.</div><div>Must end in <code>.xml</code> or <code>.json</code>.</div></br>
-    <div style="font-size: small;">aliases: uri<div>        </td></tr>
-                <tr><td>src<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>URI being used to execute API calls.</div>
+        <div>Must end in <code>.xml</code> or <code>.json</code>.</div>
+        </br><div style="font-size: small;">aliases: uri</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>src<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>Name of the absolute path of the filname that includes the body of the http request being sent to the ACI fabric.</div></br>
-    <div style="font-size: small;">aliases: config_file<div>        </td></tr>
-                <tr><td>timeout<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Name of the absolute path of the filname that includes the body of the http request being sent to the ACI fabric.</div>
+        </br><div style="font-size: small;">aliases: config_file</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>timeout<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>30</td>
-        <td></td>
-        <td><div>The socket level timeout in seconds.</div>        </td></tr>
-                <tr><td>use_proxy<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The socket level timeout in seconds.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>use_proxy<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, it will not use a proxy, even if one is defined in an environment variable on the target hosts.</div>        </td></tr>
-                <tr><td>use_ssl<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, it will not use a proxy, even if one is defined in an environment variable on the target hosts.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>use_ssl<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, an HTTP connection will be used instead of the default HTTPS connection.</div>        </td></tr>
-                <tr><td>username<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, an HTTP connection will be used instead of the default HTTPS connection.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>username<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td>admin</td>
-        <td></td>
-        <td><div>The username to use for authentication.</div></br>
-    <div style="font-size: small;">aliases: user<div>        </td></tr>
-                <tr><td>validate_certs<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The username to use for authentication.</div>
+        </br><div style="font-size: small;">aliases: user</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>validate_certs<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, SSL certificates will not be validated.</div><div>This should only set to <code>no</code> used on personally controlled sites using self-signed certificates.</div>        </td></tr>
-        </table>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, SSL certificates will not be validated.</div>
+        <div>This should only set to <code>no</code> used on personally controlled sites using self-signed certificates.</div>
+    </td>
+    </tr>
+
+    </table>
     </br>
 
 
@@ -178,6 +241,7 @@ Common return values are documented here :doc:`common_return_values`, the follow
 .. raw:: html
 
     <table border=1 cellpadding=4>
+
     <tr>
     <th class="head">name</th>
     <th class="head">description</th>
@@ -186,65 +250,89 @@ Common return values are documented here :doc:`common_return_values`, the follow
     <th class="head">sample</th>
     </tr>
 
-        <tr>
-        <td> imdata </td>
-        <td> Converted output returned by the APIC REST (register this for post-processing) </td>
-        <td align=center> always </td>
-        <td align=center> string </td>
-        <td align=center> [{'error': {'attributes': {'text': 'unknown managed object class foo', 'code': '122'}}}] </td>
+    <tr>
+    <td>imdata</td>
+    <td>
+        <div>Converted output returned by the APIC REST (register this for post-processing)</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>string</td>
+    <td align=center>[{'error': {'attributes': {'text': 'unknown managed object class foo', 'code': '122'}}}]</td>
     </tr>
-            <tr>
-        <td> status </td>
-        <td> HTTP status code </td>
-        <td align=center> always </td>
-        <td align=center> int </td>
-        <td align=center> 400 </td>
+
+    <tr>
+    <td>status</td>
+    <td>
+        <div>HTTP status code</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>int</td>
+    <td align=center>400</td>
     </tr>
-            <tr>
-        <td> raw </td>
-        <td> The raw output returned by the APIC REST API (xml or json) </td>
-        <td align=center> parse error </td>
-        <td align=center> string </td>
-        <td align=center> <?xml version="1.0" encoding="UTF-8"?><imdata totalCount="1"><error code="122" text="unknown managed object class foo"/></imdata> </td>
+
+    <tr>
+    <td>raw</td>
+    <td>
+        <div>The raw output returned by the APIC REST API (xml or json)</div>
+    </td>
+    <td align=center>parse error</td>
+    <td align=center>string</td>
+    <td align=center>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;imdata totalCount=&quot;1&quot;&gt;&lt;error code=&quot;122&quot; text=&quot;unknown managed object class foo&quot;/&gt;&lt;/imdata&gt;</td>
     </tr>
-            <tr>
-        <td> payload </td>
-        <td> The (templated) payload send to the APIC REST API (xml or json) </td>
-        <td align=center> always </td>
-        <td align=center> string </td>
-        <td align=center> <foo bar="boo"/> </td>
+
+    <tr>
+    <td>payload</td>
+    <td>
+        <div>The (templated) payload send to the APIC REST API (xml or json)</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>string</td>
+    <td align=center>&lt;foo bar=&quot;boo&quot;/&gt;</td>
     </tr>
-            <tr>
-        <td> totalCount </td>
-        <td> Number of items in the imdata array </td>
-        <td align=center> always </td>
-        <td align=center> string </td>
-        <td align=center> 0 </td>
+
+    <tr>
+    <td>totalCount</td>
+    <td>
+        <div>Number of items in the imdata array</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>string</td>
+    <td align=center>0</td>
     </tr>
-            <tr>
-        <td> error_code </td>
-        <td> The REST ACI return code, useful for troubleshooting on failure </td>
-        <td align=center> always </td>
-        <td align=center> int </td>
-        <td align=center> 122 </td>
+
+    <tr>
+    <td>error_code</td>
+    <td>
+        <div>The REST ACI return code, useful for troubleshooting on failure</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>int</td>
+    <td align=center>122</td>
     </tr>
-            <tr>
-        <td> response </td>
-        <td> HTTP response string </td>
-        <td align=center> always </td>
-        <td align=center> string </td>
-        <td align=center> HTTP Error 400: Bad Request </td>
+
+    <tr>
+    <td>response</td>
+    <td>
+        <div>HTTP response string</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>string</td>
+    <td align=center>HTTP Error 400: Bad Request</td>
     </tr>
-            <tr>
-        <td> error_text </td>
-        <td> The REST ACI descriptive text, useful for troubleshooting on failure </td>
-        <td align=center> always </td>
-        <td align=center> string </td>
-        <td align=center> unknown managed object class foo </td>
+
+    <tr>
+    <td>error_text</td>
+    <td>
+        <div>The REST ACI descriptive text, useful for troubleshooting on failure</div>
+    </td>
+    <td align=center>always</td>
+    <td align=center>string</td>
+    <td align=center>unknown managed object class foo</td>
     </tr>
-        
+
     </table>
-    </br></br>
+    </br>
+    </br>
 
 Notes
 -----
@@ -268,7 +356,7 @@ Support Level
 
 This module is maintained by The Ansible Community
 
-For more information on what this means please read :doc:`modules_support`
+For more information on what this means please read :doc:`modules_support`.
 
 
 For help in developing on modules, should you be so inclined, please read :doc:`community`, :doc:`dev_guide/testing` and :doc:`dev_guide/developing_modules`.

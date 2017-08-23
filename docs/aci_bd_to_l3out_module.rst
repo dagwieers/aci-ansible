@@ -31,6 +31,7 @@ Options
 .. raw:: html
 
     <table border=1 cellpadding=4>
+
     <tr>
     <th class="head">parameter</th>
     <th class="head">required</th>
@@ -38,29 +39,51 @@ Options
     <th class="head">choices</th>
     <th class="head">comments</th>
     </tr>
-                <tr><td>bd<br/><div style="font-size: small;"></div></td>
+
+    <tr>
+    <td>bd<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>The name of the Bridge Domain.</div></br>
-    <div style="font-size: small;">aliases: bd_name, bridge_domain<div>        </td></tr>
-                <tr><td>l3out<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The name of the Bridge Domain.</div>
+        </br><div style="font-size: small;">aliases: bd_name, bridge_domain</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>l3out<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>The name of the l3out to associate with th Bridge Domain.</div>        </td></tr>
-                <tr><td>state<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The name of the l3out to associate with th Bridge Domain.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>state<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>present</td>
-        <td><ul><li>absent</li><li>present</li><li>query</li></ul></td>
-        <td><div>Use <code>present</code> or <code>absent</code> for adding or removing.</div><div>Use <code>query</code> for listing an object or multiple objects.</div>        </td></tr>
-                <tr><td>tenant<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>absent</li><li>present</li><li>query</li></ul></td>
+    <td>
+        <div>Use <code>present</code> or <code>absent</code> for adding or removing.</div>
+        <div>Use <code>query</code> for listing an object or multiple objects.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>tenant<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>The name of the Tenant.</div></br>
-    <div style="font-size: small;">aliases: tenant_name<div>        </td></tr>
-        </table>
+    <td></td>
+    <td>
+        <div>The name of the Tenant.</div>
+        </br><div style="font-size: small;">aliases: tenant_name</div>
+    </td>
+    </tr>
+
+    </table>
     </br>
 
 
@@ -92,7 +115,7 @@ Support Level
 
 This module is maintained by The Ansible Community
 
-For more information on what this means please read :doc:`modules_support`
+For more information on what this means please read :doc:`modules_support`.
 
 
 For help in developing on modules, should you be so inclined, please read :doc:`community`, :doc:`dev_guide/testing` and :doc:`dev_guide/developing_modules`.

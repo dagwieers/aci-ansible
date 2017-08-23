@@ -31,6 +31,7 @@ Options
 .. raw:: html
 
     <table border=1 cellpadding=4>
+
     <tr>
     <th class="head">parameter</th>
     <th class="head">required</th>
@@ -38,97 +39,190 @@ Options
     <th class="head">choices</th>
     <th class="head">comments</th>
     </tr>
-                <tr><td>bounce_age<br/><div style="font-size: small;"></div></td>
+
+    <tr>
+    <td>bounce_age<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>630</td>
-        <td></td>
-        <td><div>Bounce Entry Aging Interval (range 150secs - 65535secs)</div><div>0 is used for infinite.</div>        </td></tr>
-                <tr><td>bounce_trigger<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Bounce Entry Aging Interval (range 150secs - 65535secs)</div>
+        <div>0 is used for infinite.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>bounce_trigger<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>coop</td>
-        <td></td>
-        <td><div>Determines if the bounce entries are installed by RARP Flood or COOP Protocol.</div><div>The APIC defaults new End Point Retention Policies to use COOP Protocol.</div>        </td></tr>
-                <tr><td>description<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Determines if the bounce entries are installed by RARP Flood or COOP Protocol.</div>
+        <div>The APIC defaults new End Point Retention Policies to use COOP Protocol.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>description<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>Description for the End point rentention policy.</div></br>
-    <div style="font-size: small;">aliases: descr<div>        </td></tr>
-                <tr><td>epr_policy<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Description for the End point rentention policy.</div>
+        </br><div style="font-size: small;">aliases: descr</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>epr_policy<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>The name of the end point retention policy.</div></br>
-    <div style="font-size: small;">aliases: epr_name, name<div>        </td></tr>
-                <tr><td>hold_interval<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The name of the end point retention policy.</div>
+        </br><div style="font-size: small;">aliases: epr_name, name</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>hold_interval<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>300</td>
-        <td></td>
-        <td><div>Hold Interval (range 5secs - 65535secs).</div>        </td></tr>
-                <tr><td>hostname<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Hold Interval (range 5secs - 65535secs).</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>hostname<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
-        <td></td>
-        <td><div>IP Address or hostname of APIC resolvable by Ansible control host.</div></br>
-    <div style="font-size: small;">aliases: host<div>        </td></tr>
-                <tr><td>local_ep_interval<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>IP Address or hostname of APIC resolvable by Ansible control host.</div>
+        </br><div style="font-size: small;">aliases: host</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>local_ep_interval<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>900</td>
-        <td></td>
-        <td><div>Local end point Aging Interval (range 120secs - 65535secs).</div><div>0 is used for infinite.</div>        </td></tr>
-                <tr><td>move_frequency<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Local end point Aging Interval (range 120secs - 65535secs).</div>
+        <div>0 is used for infinite.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>move_frequency<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>256</td>
-        <td></td>
-        <td><div>Move frequency per second (range 0secs - 65535secs).</div><div>0 is used for none.</div>        </td></tr>
-                <tr><td>password<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Move frequency per second (range 0secs - 65535secs).</div>
+        <div>0 is used for none.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>password<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td></td>
-        <td></td>
-        <td><div>The password to use for authentication.</div>        </td></tr>
-                <tr><td>remote_ep_interval<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The password to use for authentication.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>remote_ep_interval<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>300</td>
-        <td></td>
-        <td><div>Remote end point Aging Interval (range 120secs - 65535secs).</div><div>O is used for infinite.</div>        </td></tr>
-                <tr><td>state<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>Remote end point Aging Interval (range 120secs - 65535secs).</div>
+        <div>O is used for infinite.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>state<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>present</td>
-        <td><ul><li>absent</li><li>present</li><li>query</li></ul></td>
-        <td><div>Use <code>present</code> or <code>absent</code> for adding or removing.</div><div>Use <code>query</code> for listing an object or multiple objects.</div>        </td></tr>
-                <tr><td>tenant<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>absent</li><li>present</li><li>query</li></ul></td>
+    <td>
+        <div>Use <code>present</code> or <code>absent</code> for adding or removing.</div>
+        <div>Use <code>query</code> for listing an object or multiple objects.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>tenant<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td></td>
-        <td></td>
-        <td><div>The name of an existing tenant.</div></br>
-    <div style="font-size: small;">aliases: tenant_name<div>        </td></tr>
-                <tr><td>timeout<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The name of an existing tenant.</div>
+        </br><div style="font-size: small;">aliases: tenant_name</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>timeout<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>30</td>
-        <td></td>
-        <td><div>The socket level timeout in seconds.</div>        </td></tr>
-                <tr><td>use_proxy<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The socket level timeout in seconds.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>use_proxy<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, it will not use a proxy, even if one is defined in an environment variable on the target hosts.</div>        </td></tr>
-                <tr><td>use_ssl<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, it will not use a proxy, even if one is defined in an environment variable on the target hosts.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>use_ssl<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, an HTTP connection will be used instead of the default HTTPS connection.</div>        </td></tr>
-                <tr><td>username<br/><div style="font-size: small;"></div></td>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, an HTTP connection will be used instead of the default HTTPS connection.</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>username<br/><div style="font-size: small;"></div></td>
     <td>yes</td>
     <td>admin</td>
-        <td></td>
-        <td><div>The username to use for authentication.</div></br>
-    <div style="font-size: small;">aliases: user<div>        </td></tr>
-                <tr><td>validate_certs<br/><div style="font-size: small;"></div></td>
+    <td></td>
+    <td>
+        <div>The username to use for authentication.</div>
+        </br><div style="font-size: small;">aliases: user</div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>validate_certs<br/><div style="font-size: small;"></div></td>
     <td>no</td>
     <td>yes</td>
-        <td><ul><li>yes</li><li>no</li></ul></td>
-        <td><div>If <code>no</code>, SSL certificates will not be validated.</div><div>This should only set to <code>no</code> used on personally controlled sites using self-signed certificates.</div>        </td></tr>
-        </table>
+    <td><ul><li>yes</li><li>no</li></ul></td>
+    <td>
+        <div>If <code>no</code>, SSL certificates will not be validated.</div>
+        <div>This should only set to <code>no</code> used on personally controlled sites using self-signed certificates.</div>
+    </td>
+    </tr>
+
+    </table>
     </br>
 
 
@@ -201,7 +295,7 @@ Support Level
 
 This module is maintained by The Ansible Community
 
-For more information on what this means please read :doc:`modules_support`
+For more information on what this means please read :doc:`modules_support`.
 
 
 For help in developing on modules, should you be so inclined, please read :doc:`community`, :doc:`dev_guide/testing` and :doc:`dev_guide/developing_modules`.

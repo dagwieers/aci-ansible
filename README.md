@@ -38,7 +38,7 @@ People interested in contributing to this project are welcome to join.
 - [aci_epg_monitoring_policy](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_epg_monitoring_policy_module.rst) -
   Manage monitoring policies on Cisco ACI fabrics (mon:EPGPol)
 - [aci_epg_to_contract](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_epg_to_contract_module.rst) -
-  Bind EPGs to Contracts on Cisco ACI fabrics (fv:RsCons and fvRsProv)
+  Bind EPGs to contracts on Cisco ACI fabrics (fv:RsCons and fv:RsProv)
 - [aci_epg_to_domain](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_epg_to_domain_module.rst) -
   Bind EPGs to Domains on Cisco ACI fabrics (fv:RsDomAtt)
 - [aci_fabric_inventory](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_fabric_inventory_module.rst) -
@@ -76,6 +76,6 @@ People interested in contributing to this project are welcome to join.
 - [aci_tenant_span_dst_group](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_tenant_span_dst_group_module.rst) -
   Manage SPAN destination groups on Cisco ACI fabrics (span:DestGrp)
 - [aci_tenant_span_src_group](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_tenant_span_src_group_module.rst) -
-  Manage span source groups on Cisco ACI fabrics (span:SrcGrp)
+  Manage SPAN source groups on Cisco ACI fabrics (span:SrcGrp)
 - [aci_vrf](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_vrf_module.rst) -
   Manage VRF (private networks aka. contexts) on Cisco ACI fabrics (fv:Ctx)

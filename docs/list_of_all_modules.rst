@@ -15,7 +15,7 @@ All Modules
   aci_contract_subject_to_filter - Bind Contract Subjects to Filters on Cisco ACI fabrics (vz:RsSubjFiltAtt) <aci_contract_subject_to_filter_module>
   aci_epg - Manage End Point Groups (EPG) on Cisco ACI fabrics (fv:AEPg) <aci_epg_module>
   aci_epg_monitoring_policy - Manage monitoring policies on Cisco ACI fabrics (mon:EPGPol) <aci_epg_monitoring_policy_module>
-  aci_epg_to_contract - Bind EPGs to Contracts on Cisco ACI fabrics (fv:RsCons and fvRsProv) <aci_epg_to_contract_module>
+  aci_epg_to_contract - Bind EPGs to contracts on Cisco ACI fabrics (fv:RsCons and fv:RsProv) <aci_epg_to_contract_module>
   aci_epg_to_domain - Bind EPGs to Domains on Cisco ACI fabrics (fv:RsDomAtt) <aci_epg_to_domain_module>
   aci_fabric_inventory - Get fabric topology data on Cisco ACI fabrics <aci_fabric_inventory_module>
   aci_filter - Manages top level filter objects on Cisco ACI fabrics (vz:Filter) <aci_filter_module>
@@ -34,7 +34,7 @@ All Modules
   aci_tenant_action_rule_profile - Manage action rule profiles on Cisco ACI fabrics (rtctrl:AttrP) <aci_tenant_action_rule_profile_module>
   aci_tenant_ep_retention_policy - Manage End Point (EP) retention protocol policies on Cisco ACI fabrics (fv:EpRetPol) <aci_tenant_ep_retention_policy_module>
   aci_tenant_span_dst_group - Manage SPAN destination groups on Cisco ACI fabrics (span:DestGrp) <aci_tenant_span_dst_group_module>
-  aci_tenant_span_src_group - Manage span source groups on Cisco ACI fabrics (span:SrcGrp) <aci_tenant_span_src_group_module>
+  aci_tenant_span_src_group - Manage SPAN source groups on Cisco ACI fabrics (span:SrcGrp) <aci_tenant_span_src_group_module>
   aci_vrf - Manage VRF (private networks aka. contexts) on Cisco ACI fabrics (fv:Ctx) <aci_vrf_module>
 
 
