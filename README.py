@@ -9,7 +9,11 @@ with open('README.md', 'w') as README:
 This project is working on upstreaming Cisco ACI support within the Ansible project.
 We currently have 30+ modules available, and many more are being added.
 
-## Project
+
+## News
+Ansible v2.4 will ship with **aci_rest** and tens of ACI modules ! We are working hard
+with the Ansible Network Working Group to add more modules to ship with Ansible v2.5.
+
 You can find more information related to this project at:
 https://github.com/ansible/community/wiki/Network:-ACI
 
