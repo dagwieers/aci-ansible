@@ -184,6 +184,52 @@ Examples
         src: /home/cisco/ansible/aci/configs/aci_config.xml
       delegate_to: localhost
     
+    - name: Add a tenant using inline YAML
+      aci_rest:
+        hostname: '{{ inventory_hostname }}'
+        username: '{{ aci_username }}'
+        password: '{{ aci_password }}'
+        validate_certs: no
+        path: /api/mo/uni/tn-[Sales].json
+        method: post
+        content:
+          fvTenant:
+            attributes:
+              name: Sales
+              descr: Sales departement
+      delegate_to: localhost
+    
+    - name: Add a tenant using a JSON string
+      aci_rest:
+        hostname: '{{ inventory_hostname }}'
+        username: '{{ aci_username }}'
+        password: '{{ aci_password }}'
+        validate_certs: no
+        path: /api/mo/uni/tn-[Sales].json
+        method: post
+        content: |
+          {
+            "fvTenant": {
+              "attributes": {
+                "name": "Sales",
+                "descr": "Sales departement"
+              }
+            }
+          }
+      delegate_to: localhost
+    
+    - name: Add a tenant using an XML string
+      aci_rest:
+        hostname: '{{ inventory_hostname }}'
+        username: '{{ aci_username }}'
+        password: '{{ aci_password }}'
+        validate_certs: no
+        path: /api/mo/uni/tn-[Sales].xml
+        method: post
+        content: |
+          <fvTenant name="Sales" descr="Sales departement"/>
+      delegate_to: localhost
+    
     - name: Get tenants
       aci_rest:
         hostname: '{{ inventory_hostname }}'
@@ -278,6 +324,16 @@ Common return values are documented here :doc:`common_return_values`, the follow
     <td align=center>parse error</td>
     <td align=center>string</td>
     <td align=center>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;imdata totalCount=&quot;1&quot;&gt;&lt;error code=&quot;122&quot; text=&quot;unknown managed object class foo&quot;/&gt;&lt;/imdata&gt;</td>
+    </tr>
+
+    <tr>
+    <td>url</td>
+    <td>
+        <div>URL used for APIC REST call</div>
+    </td>
+    <td align=center>success</td>
+    <td align=center>string</td>
+    <td align=center>https://1.2.3.4/api/mo/uni/tn-[Dag].json?rsp-subtree=modified</td>
     </tr>
 
     <tr>

@@ -10,6 +10,8 @@ All Modules
   aci_bd_dhcp_association - Manage DHCP Relay Labels in Bridge Domains (BD) on Cisco ACI fabrics (dhcp:Lbl) <aci_bd_dhcp_association_module>
   aci_bd_subnet - Manage Subnets on Cisco ACI fabrics (fv:Subnet) <aci_bd_subnet_module>
   aci_bd_to_l3out - Bind Bridge Domain to L3 Out on Cisco ACI fabrics (fv:RsBDToOut) <aci_bd_to_l3out_module>
+  aci_config_rollback - Provides rollback and rollback preview functionality for Cisco ACI fabrics (config:ImportP) <aci_config_rollback_module>
+  aci_config_snapshot - Manage Config Snapshots on Cisco ACI fabrics (config:Snapshot, config:ExportP) <aci_config_snapshot_module>
   aci_contract - Manage contract resources on Cisco ACI fabrics (vz:BrCP) <aci_contract_module>
   aci_contract_subject - Manage initial Contract Subjects on Cisco ACI fabrics (vz:Subj) <aci_contract_subject_module>
   aci_contract_subject_to_filter - Bind Contract Subjects to Filters on Cisco ACI fabrics (vz:RsSubjFiltAtt) <aci_contract_subject_to_filter_module>

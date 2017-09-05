@@ -30,8 +30,8 @@ requirements:
 - Tested with ACI Fabric 1.0(3f)+
 notes:
 - The APIC does not provide a mechanism for naming the snapshots.
-- Snapshot files use the following naming structure: ce_<config export policy name>-<yyyy>-<mm>-<dd>T<hh>:<mm>:<ss>.<mss>+<hh>:<mm>.
-- Snapshot objects use the following naming structure: run-<yyyy>-<mm>-<dd>T<hh>-<mm>-<ss>.
+- 'Snapshot files use the following naming structure: ce_<config export policy name>-<yyyy>-<mm>-<dd>T<hh>:<mm>:<ss>.<mss>+<hh>:<mm>.'
+- 'Snapshot objects use the following naming structure: run-<yyyy>-<mm>-<dd>T<hh>-<mm>-<ss>.'
 options:
   description:
     description:
@@ -57,7 +57,7 @@ options:
     - Determines how many snapshots can exist for the Export Policy before the APIC starts to rollover.
     - The APIC defaults new Export Policies to C(3).
     choices: [ range between 1 and 10 ]
-    default 3
+    default: 3
   snapshot:
     description:
     - The name of the snapshot to delete.

@@ -27,6 +27,10 @@ People interested in contributing to this project are welcome to join.
   Manage Subnets on Cisco ACI fabrics (fv:Subnet)
 - [aci_bd_to_l3out](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_bd_to_l3out_module.rst) -
   Bind Bridge Domain to L3 Out on Cisco ACI fabrics (fv:RsBDToOut)
+- [aci_config_rollback](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_config_rollback_module.rst) -
+  Provides rollback and rollback preview functionality for Cisco ACI fabrics (config:ImportP)
+- [aci_config_snapshot](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_config_snapshot_module.rst) -
+  Manage Config Snapshots on Cisco ACI fabrics (config:Snapshot, config:ExportP)
 - [aci_contract](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_contract_module.rst) -
   Manage contract resources on Cisco ACI fabrics (vz:BrCP)
 - [aci_contract_subject](https://github.com/datacenter/aci-ansible/blob/master/docs/aci_contract_subject_module.rst) -
