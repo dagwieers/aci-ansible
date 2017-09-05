@@ -216,7 +216,6 @@ url:
 
 import json
 import os
-import yaml
 
 try:
     from ansible.module_utils.six.moves.urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
@@ -240,6 +239,13 @@ try:
 except ImportError:
     HAS_XMLJSON_COBRA = False
 
+# Optional, only used for YAML validation
+try:
+    import yaml
+    HAS_YAML = True
+except:
+    HAS_YAML = False
+
 from ansible.module_utils.aci import ACIModule, aci_argument_spec, aci_response_json, aci_response_xml
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.urls import fetch_url
@@ -256,16 +262,16 @@ def update_qsl(url, params):
         url_parts[4] = urlencode(query)
         return urlunparse(url_parts)
     elif '?' in url:
-        return url + '&' + '&'.join(['%s=%s' % kv for kv in params.iteritems()])
+        return url + '&' + '&'.join(['%s=%s' % (k, v) for k, v in params.items()])
     else:
-        return url + '?' + '&'.join(['%s=%s' % kv for kv in params.iteritems()])
+        return url + '?' + '&'.join(['%s=%s' % (k, v) for k, v in params.items()])
 
 
 def aci_changed(d):
     ''' Check ACI response for changes '''
 
     if isinstance(d, dict):
-        for k, v in d.iteritems():
+        for k, v in d.items():
             if k == 'status' and v in ('created', 'modified', 'deleted'):
                 return True
             elif aci_changed(v) is True:
@@ -346,7 +352,7 @@ def main():
         if content and isinstance(content, dict):
             # Validate inline YAML/JSON
             payload = json.dumps(payload)
-        elif payload and isinstance(payload, str):
+        elif payload and isinstance(payload, str) and HAS_YAML:
             try:
                 # Validate YAML/JSON string
                 payload = json.dumps(yaml.load(payload))
