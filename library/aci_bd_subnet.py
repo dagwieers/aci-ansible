@@ -71,20 +71,21 @@ options:
     - The L3 Out that contains the assocated Route Profile.
   scope:
     description:
-    - Determines if scope of the Subnet.
-    - The private option only allows communication with hosts in the same VRF.
-    - The public option allows the Subnet to be advertised outside of the ACI Fabric, and allows communication with
+    - Determines the scope of the Subnet.
+    - The C(private) option only allows communication with hosts in the same VRF.
+    - The C(public) option allows the Subnet to be advertised outside of the ACI Fabric, and allows communication with
       hosts in other VRFs.
-    - The shared option limits communication to hosts in either the same VRF or the shared VRF.
+    - The C(shared) option limits communication to hosts in either the same VRF or the shared VRF.
+    - The value is a list of options, C(private) and C(public) are mutually exclusive, but both can be used with C(shared).
     - The APIC defaults new Subnets to C(private).
     choices: [ private, public, shared ]
     default: private
   subnet_control:
     description:
     - Determines the Subnet's Control State.
-    - The querier_ip option is used to treat the gateway_ip as an IGMP querier source IP.
-    - The nd_ra option is used to treate the gateway_ip address as a Neighbor Discovery Router Advertisement Prefix.
-    - The no_gw option is used to remove default gateway functionality from the gateway address.
+    - The C(querier_ip) option is used to treat the gateway_ip as an IGMP querier source IP.
+    - The C(nd_ra) option is used to treate the gateway_ip address as a Neighbor Discovery Router Advertisement Prefix.
+    - The C(no_gw) option is used to remove default gateway functionality from the gateway address.
     - The APIC defaults new Subnets to C(nd_ra).
     choices: [ nd_ra, no_gw, querier_ip, unspecified ]
     default: nd_ra
@@ -122,7 +123,7 @@ def main():
         preferred=dict(type='str', choices=['no', 'yes']),
         route_profile=dict(type='str'),
         route_profile_l3_out=dict(type='str'),
-        scope=dict(type='str', choices=['private', 'public', 'shared']),
+        scope=dict(type='list', choices=['private', 'public', 'shared']),
         subnet_control=dict(type='str', choices=['nd_ra', 'no_gw', 'querier_ip', 'unspecified']),
         state=dict(type='str', default='present', choices=['absent', 'present', 'query']),
         tenant=dict(type='str', aliases=['tenant_name']),
@@ -152,8 +153,18 @@ def main():
     scope = module.params['scope']
     state = module.params['state']
     subnet_control = module.params['subnet_control']
+
     if subnet_control:
         subnet_control = SUBNET_CONTROL_MAPPING[subnet_control]
+
+    for item in scope:
+        if item not in module.argument_spec['scope']['choices']:
+            module.fail_json(msg="Parameter 'scope' does not accept option '%s'" % item)
+
+    if 'private' in scope and 'public' in scope:
+        module.fail_json(msg="Option 'public' and 'private' are mutually exclusive for parameter 'scope'")
+
+    scope_str = ','.join(scope)
 
     # Construct gateway_addr and add to module.params for constructing URL
     if gateway is not None and mask is not None:
@@ -173,7 +184,7 @@ def main():
             aci_class='fvSubnet',
             class_config=dict(
                 ctrl=subnet_control, descr=description, ip=gateway_addr, name=subnet_name,
-                preferred=preferred, scope=scope, virtual=enable_vip
+                preferred=preferred, scope=scope_str, virtual=enable_vip
             ),
             child_configs=[
                 {'fvRsBDSubnetToProfile': {'attributes': {'tnL3extOutName': route_profile_l3_out, 'tnRtctrlProfileName': route_profile}}},
