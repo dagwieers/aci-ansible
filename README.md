@@ -1,10 +1,9 @@
-
 # Cisco ACI modules for Ansible (moved)
 
-We have upstreamed all our work and have been adding more ACI modules within the Ansible project.
+All our work has been upstreamed into the Ansible project.
 
 Please read the new documentation at:
-http://docs.ansible.com/ansible/devel/guide_aci.html
+https://docs.ansible.com/ansible/devel/scenario_guides/guide_aci.html
 
 If you are interested in the Cisco ACI Ansible roadmap, please visit:
 https://github.com/ansible/community/wiki/Network:-ACI
