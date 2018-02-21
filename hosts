@@ -1,7 +1,0 @@
-# Single APIC in system- can also use IP if no DNS or /etc/hosts isn't setup
-apic
-
-[all:vars]
-aci_hostname = 192.168.130.10
-aci_username = admin
-aci_password = Cisco!123
